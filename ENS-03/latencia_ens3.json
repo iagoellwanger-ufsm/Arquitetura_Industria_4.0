@@ -1,0 +1,190 @@
+[
+    {
+        "id": "dc0141f4af18a012",
+        "type": "tab",
+        "label": "Coleta_sensores_TCCB",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a1f3c8770c8e978b",
+        "type": "mqtt in",
+        "z": "dc0141f4af18a012",
+        "d": true,
+        "name": "",
+        "topic": "casa/parametros/sensor1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "53b2e82549eb0df0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "153f783aded46cd2",
+                "bbf4c5928f02fc01"
+            ]
+        ]
+    },
+    {
+        "id": "f15c963fd5a5f898",
+        "type": "influxdb3-write",
+        "z": "dc0141f4af18a012",
+        "influxdb": "dab8b97ad33639de",
+        "name": "",
+        "measurement": "dados_ambiente",
+        "database": "base_tcc",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 580,
+        "y": 100,
+        "wires": [
+            [
+                "b0d21ef4c412468e"
+            ]
+        ]
+    },
+    {
+        "id": "b0d21ef4c412468e",
+        "type": "debug",
+        "z": "dc0141f4af18a012",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "153f783aded46cd2",
+        "type": "function",
+        "z": "dc0141f4af18a012",
+        "name": "function 5",
+        "func": "// 1. Recebe o JSON original vindo do nó MQTT\nconst dados = msg.payload;\n\n// 2. Extrai e converte os valores estritamente para números (Float)\nconst campos = {\n    sensor: \"BME280\",\n    temperatura: parseFloat(dados.temperatura),\n    pressao: parseFloat(dados.pressao),\n    umidade: parseFloat(dados.umidade),\n    timestamp: dados.timestamp * 1000\n};\n\nmsg.payload = campos\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "f15c963fd5a5f898"
+            ]
+        ]
+    },
+    {
+        "id": "f6f4695af8da085b",
+        "type": "debug",
+        "z": "dc0141f4af18a012",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "bbf4c5928f02fc01",
+        "type": "function",
+        "z": "dc0141f4af18a012",
+        "name": "function 6",
+        "func": "// =====================================================================\n//  Nó \"function\" do Node-RED para o ensaio F3 (latência)\n//  Ligação:  [mqtt in: casa/parametros/sensor1] -> [ESTE NÓ] -> [influxdb out]\n//  No \"influxdb out\": measurement = latencia_f3 ; NÃO enviar hora\n//  (o _time do ponto passa a ser o instante da gravação = T3)\n//  Dica: ligue este ramo em PARALELO ao fluxo atual, a partir do mesmo\n//  \"mqtt in\", para não mexer no que já funciona.\n// =====================================================================\n\nlet p = msg.payload;\nif (typeof p === \"string\") {\n    try { p = JSON.parse(p); }\n    catch (e) { node.warn(\"Payload não é JSON: \" + msg.payload); return null; }\n}\n\n// Ignora mensagens do firmware antigo (sem os campos do F3)\nif (p.ts_sensor_ms === undefined || p.seq === undefined) {\n    node.warn(\"Mensagem sem ts_sensor_ms/seq: firmware do F3 não carregado?\");\n    return null;\n}\n\nconst t2 = Date.now();                 // T2: chegada no Node-RED (ms, relógio do Windows)\nconst t0 = Number(p.ts_sensor_ms);     // T0: instante da publicação no ESP32 (ms, NTP)\n\nmsg.payload = [\n    {   // fields\n        temperatura: Number(p.temperatura),\n        pressao: Number(p.pressao),\n        umidade: Number(p.umidade),\n        seq: Number(p.seq),\n        ts_sensor_ms: t0,\n        ts_nodered_ms: t2,\n        lat_sensor_nodered_ms: t2 - t0\n    },\n    {   // tags\n        sensor: \"BME280\",\n        ensaio: \"F3_A\"\n    }\n];\n\n// Mostra a latência no status do nó, para acompanhar ao vivo\nnode.status({ fill: \"green\", shape: \"dot\", text: `seq ${p.seq} | ${t2 - t0} ms` });\n\nreturn msg;   // sem msg.payload[0].time  ->  _time = gravação (T3)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "4ecf266939e09fc1"
+            ]
+        ]
+    },
+    {
+        "id": "4ecf266939e09fc1",
+        "type": "influxdb3-write",
+        "z": "dc0141f4af18a012",
+        "influxdb": "dab8b97ad33639de",
+        "name": "",
+        "measurement": "latencia_f3",
+        "database": "base_tcc",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "f6f4695af8da085b"
+            ]
+        ]
+    },
+    {
+        "id": "53b2e82549eb0df0",
+        "type": "mqtt-broker",
+        "name": "Server_Auxiliar",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "dab8b97ad33639de",
+        "type": "influxdb3-config",
+        "name": "Banco_ambiente",
+        "host": "http://localhost:8181",
+        "database": "dados_ambiente",
+        "tlsRejectUnauthorized": true,
+        "caCertPath": ""
+    },
+    {
+        "id": "10c0c6b668ee24d3",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-influxdb3": "1.1.1"
+        }
+    }
+]

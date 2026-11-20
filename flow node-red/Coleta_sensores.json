@@ -1,0 +1,487 @@
+[
+    {
+        "id": "fc7797aa9054848a",
+        "type": "tab",
+        "label": "Coleta_sensores_TCCB",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "15c24bc057d39f5a",
+        "type": "group",
+        "z": "fc7797aa9054848a",
+        "name": "Linha de persistencia do Sensor de Ambiente",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "238895431d8273ec",
+            "8a10e1eb3e920b4b",
+            "3438a3d3d012bc8b",
+            "c9f82de6095abe42"
+        ],
+        "x": 14,
+        "y": 39,
+        "w": 772,
+        "h": 82
+    },
+    {
+        "id": "5ed3eb0deda9bf19",
+        "type": "group",
+        "z": "fc7797aa9054848a",
+        "name": "Linha de persistencia do Edge Computing de Vibração",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3c8880ce75d6e9d4",
+            "aaba0a1a34ef9a85",
+            "9518ffce95f6e826"
+        ],
+        "x": 14,
+        "y": 199,
+        "w": 772,
+        "h": 82
+    },
+    {
+        "id": "cd52e94fdb0886c8",
+        "type": "group",
+        "z": "fc7797aa9054848a",
+        "name": "Linha de persistencia do Sensor de Vibração",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0fa0c4cd8c456a84",
+            "8539616cf81c9a2c",
+            "a3be4d04294a10a4",
+            "9059928930dd75c6",
+            "043bc7e723cb08e9",
+            "bdd9e6d009cbd9f4",
+            "e25cac8848bd6bc4",
+            "d82e5dea696695e8",
+            "25205f8da4c53a28",
+            "ca88ad4590900b32"
+        ],
+        "x": 14,
+        "y": 379,
+        "w": 1652,
+        "h": 222
+    },
+    {
+        "id": "238895431d8273ec",
+        "type": "mqtt in",
+        "z": "fc7797aa9054848a",
+        "g": "15c24bc057d39f5a",
+        "name": "",
+        "topic": "casa/parametros/sensor1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "53b2e82549eb0df0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "c9f82de6095abe42"
+            ]
+        ]
+    },
+    {
+        "id": "8a10e1eb3e920b4b",
+        "type": "influxdb3-write",
+        "z": "fc7797aa9054848a",
+        "g": "15c24bc057d39f5a",
+        "influxdb": "dab8b97ad33639de",
+        "name": "",
+        "measurement": "dadosAmbiente",
+        "database": "dadosPrimarios",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 520,
+        "y": 80,
+        "wires": [
+            [
+                "3438a3d3d012bc8b"
+            ]
+        ]
+    },
+    {
+        "id": "3438a3d3d012bc8b",
+        "type": "debug",
+        "z": "fc7797aa9054848a",
+        "g": "15c24bc057d39f5a",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c9f82de6095abe42",
+        "type": "function",
+        "z": "fc7797aa9054848a",
+        "g": "15c24bc057d39f5a",
+        "name": "tratamento",
+        "func": "// 1. Recebe o JSON original vindo do nó MQTT\nconst dados = msg.payload;\n\n// 2. Extrai e converte os valores estritamente para números (Float)\nconst campos = {\n    sensor: \"BME280\",\n    temperatura: parseFloat(dados.temperatura),\n    pressao: parseFloat(dados.pressao),\n    umidade: parseFloat(dados.umidade),\n    timestamp: dados.timestamp * 1000\n};\n\nmsg.payload = campos\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "8a10e1eb3e920b4b"
+            ]
+        ]
+    },
+    {
+        "id": "3c8880ce75d6e9d4",
+        "type": "mqtt in",
+        "z": "fc7797aa9054848a",
+        "g": "5ed3eb0deda9bf19",
+        "name": "",
+        "topic": "tcc/bancada/vibracao",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "53b2e82549eb0df0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 240,
+        "wires": [
+            [
+                "aaba0a1a34ef9a85"
+            ]
+        ]
+    },
+    {
+        "id": "aaba0a1a34ef9a85",
+        "type": "influxdb3-write",
+        "z": "fc7797aa9054848a",
+        "g": "5ed3eb0deda9bf19",
+        "influxdb": "dab8b97ad33639de",
+        "name": "",
+        "measurement": "dadosVibracaoEdge",
+        "database": "dadosPrimarios",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 520,
+        "y": 240,
+        "wires": [
+            [
+                "9518ffce95f6e826"
+            ]
+        ]
+    },
+    {
+        "id": "9518ffce95f6e826",
+        "type": "debug",
+        "z": "fc7797aa9054848a",
+        "g": "5ed3eb0deda9bf19",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "0fa0c4cd8c456a84",
+        "type": "inject",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "a cada 1 s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "8539616cf81c9a2c"
+            ]
+        ]
+    },
+    {
+        "id": "8539616cf81c9a2c",
+        "type": "function",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "Monta URL /sample",
+        "func": "// ===================== Configuração =====================\nconst AGENTE = 'http://localhost:5000';   // endereço do agente MTConnect\nconst COUNT  = 1000;                      // máximo de sequências por requisição\n// ========================================================\n\n// Evita requisições sobrepostas caso o agente demore mais que o intervalo\nconst ocupado = flow.get('ifx_ocupado') || 0;\nif (Date.now() - ocupado < 5000) return null;\nflow.set('ifx_ocupado', Date.now());\n\n// Leitura incremental: pede só o que chegou desde a última resposta (nextSequence)\nconst proximo = flow.get('ifx_proximo');\nmsg.url = AGENTE + '/sample?count=' + COUNT + (proximo != null ? '&from=' + proximo : '');\nmsg.headers = { Accept: 'application/xml' };\nmsg.requestTimeout = 4000;\nmsg.ifx_from = proximo;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Zera o estado ao iniciar/deploy\nflow.set('ifx_proximo', null);\nflow.set('ifx_instancia', null);\nflow.set('ifx_ocupado', 0);\n",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 420,
+        "wires": [
+            [
+                "a3be4d04294a10a4"
+            ]
+        ]
+    },
+    {
+        "id": "a3be4d04294a10a4",
+        "type": "http request",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "GET /sample",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 510,
+        "y": 420,
+        "wires": [
+            [
+                "9059928930dd75c6"
+            ]
+        ]
+    },
+    {
+        "id": "9059928930dd75c6",
+        "type": "switch",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "HTTP 200?",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 680,
+        "y": 420,
+        "wires": [
+            [
+                "043bc7e723cb08e9"
+            ],
+            [
+                "e25cac8848bd6bc4"
+            ]
+        ],
+        "outputLabels": [
+            "OK",
+            "falha"
+        ]
+    },
+    {
+        "id": "043bc7e723cb08e9",
+        "type": "xml",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "XML → objeto",
+        "property": "payload",
+        "attr": "",
+        "chr": "",
+        "x": 850,
+        "y": 420,
+        "wires": [
+            [
+                "bdd9e6d009cbd9f4"
+            ]
+        ]
+    },
+    {
+        "id": "bdd9e6d009cbd9f4",
+        "type": "function",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "Prepara pontos InfluxDB",
+        "func": "// =============================== Configuração ===============================\nconst DISPOSITIVO     = 'SensorVibracao'; // nome do device no agente MTConnect\nconst MEDICAO         = 'vibracao';       // tabela das amostras no InfluxDB\nconst MEDICAO_RMS     = 'vibracao_rms';   // tabela com RMS e pico de cada janela\nconst RECUPERAR       = 1800;             // ao conectar, quantas observações antigas buscar no agente\n                                          // (3 por segundo → 1800 ≈ 10 min; 0 = só dados novos)\nconst PONTOS_POR_LOTE = 5000;             // pontos por write (~0,5 MB; o InfluxDB recusa acima de 10 MB)\nconst ALERTA_S        = 30;               // status amarelo se o sensor ficar esse tempo sem enviar\n// ============================================================================\n\nflow.set('ifx_ocupado', 0);   // a resposta chegou: libera o nó que faz as requisições ao agente\nconst status = (cor, texto) =>\n    node.status({ fill: cor, shape: 'dot', text: texto + ' · ' + new Date().toLocaleTimeString('pt-BR') });\n\n// 1) A resposta do agente é válida?\nconst raiz = msg.payload?.MTConnectStreams;\nif (!raiz) {\n    flow.set('ifx_instancia', null);   // na próxima resposta válida, sincroniza de novo\n    flow.set('ifx_proximo', null);\n    status('yellow', 'resposta inválida do agente — ressincronizando');\n    return null;\n}\nconst cab   = raiz.Header?.[0]?.$ ?? {};\nconst first = Number(cab.firstSequence);   // observação mais antiga no buffer do agente\nconst last  = Number(cab.lastSequence);    // observação mais nova\nconst next  = Number(cab.nextSequence);    // de onde a próxima leitura deve continuar\n\n// 2) Primeira resposta, ou o agente reiniciou: escolhe de onde começar e pede de novo\nif (cab.instanceId !== flow.get('ifx_instancia')) {\n    flow.set('ifx_instancia', cab.instanceId);\n    flow.set('ifx_proximo', Math.max(first, last + 1 - RECUPERAR));\n    context.set('ultimaAmostra', Date.now());\n    status('blue', 'conectado ao agente — sincronizando');\n    return [null, { continuar: true }];\n}\nflow.set('ifx_proximo', next);   // a próxima requisição continua daqui\n\n// 3) Transforma cada amostra em um ponto do InfluxDB\nconst pontos   = [];   // amostras          → tabela MEDICAO\nconst resumos  = [];   // RMS e pico/janela → tabela MEDICAO_RMS\nfor (const streams of raiz.Streams ?? []) {\n    for (const device of streams.DeviceStream ?? []) {\n        if (device.$?.name !== DISPOSITIVO) continue;\n        const tags = { dispositivo: device.$.name, uuid: device.$.uuid };\n        for (const componente of device.ComponentStream ?? []) {\n            for (const samples of componente.Samples ?? []) {\n                for (const [tipo, itens] of Object.entries(samples)) {\n                    if (tipo === '$') continue;              // '$' são atributos, não amostras\n                    for (const item of itens) {\n                        const atr   = item.$ ?? {};\n                        const sinal = atr.dataItemId;        // acc_x, acc_y ou acc_z\n                        const texto = (item._ ?? '').trim(); // \"v1 v2 v3 ... v256\"\n                        const t     = Date.parse(atr.timestamp);\n                        if (!sinal || !texto || isNaN(t)) continue;\n                        const valores = texto.split(/\\s+/).map(Number);\n                        if (valores.some(isNaN)) continue;   // ex.: UNAVAILABLE\n\n                        // O firmware não manda horário, então o agente marca a chegada da série,\n                        // logo depois da última amostra. Cada amostra anterior fica 1/taxa mais cedo.\n                        const passo = atr.sampleRate ? 1000 / Number(atr.sampleRate) : 0;   // ms\n                        valores.forEach((v, i) => pontos.push({\n                            measurement: MEDICAO,\n                            tags,\n                            fields: { [sinal]: v },\n                            timestamp: new Date(t - (valores.length - 1 - i) * passo)\n                        }));\n\n                        // Resumo da janela, sem a média (a gravidade fica toda na média)\n                        if (valores.length > 1) {\n                            const media   = valores.reduce((s, v) => s + v, 0) / valores.length;\n                            const desvios = valores.map(v => v - media);\n                            resumos.push({\n                                measurement: MEDICAO_RMS,\n                                tags,\n                                fields: {\n                                    [sinal + '_rms']:  Math.sqrt(desvios.reduce((s, d) => s + d * d, 0) / desvios.length),\n                                    [sinal + '_pico']: Math.max(...desvios.map(Math.abs))\n                                },\n                                timestamp: new Date(t)\n                            });\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n\n// 4) Divide em lotes: cada lote vira um write separado, sempre bem abaixo dos 10 MB\nconst lotes = [];\nfor (const lista of [pontos, resumos]) {\n    for (let i = 0; i < lista.length; i += PONTOS_POR_LOTE) {\n        const parte = lista.slice(i, i + PONTOS_POR_LOTE);\n        lotes.push({ measurement: parte[0].measurement, payload: parte });\n    }\n}\n\n// 5) Status no editor, com alerta se o sensor parou de mandar dados\nif (pontos.length) context.set('ultimaAmostra', Date.now());\nconst parado = Math.round((Date.now() - context.get('ultimaAmostra')) / 1000);\nif (parado >= ALERTA_S) status('yellow', `⚠️ sem amostras há ${parado} s`);\nelse status('green', `${pontos.length} pontos em ${lotes.length} lote(s) · seq ${next - 1}`);\n\n// 6) Ainda há dados no buffer do agente (e a leitura avançou)? Pede a próxima parte já\nconst temMais = next <= last && (msg.ifx_from == null || next > msg.ifx_from);\nreturn [lotes.length ? lotes : null, temMais ? { continuar: true } : null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 420,
+        "wires": [
+            [
+                "ca88ad4590900b32"
+            ],
+            [
+                "8539616cf81c9a2c"
+            ]
+        ],
+        "outputLabels": [
+            "pontos para o InfluxDB",
+            "buscar o restante do buffer"
+        ]
+    },
+    {
+        "id": "e25cac8848bd6bc4",
+        "type": "function",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "Falha na leitura",
+        "func": "// Trata falhas de comunicação (sem conexão, timeout, HTTP != 200) e erros de parsing\nflow.set('ifx_ocupado', 0);\nlet texto;\n\nif (msg.error) {\n    texto = 'erro ao interpretar a resposta: ' + msg.error.message;\n} else if (typeof msg.statusCode === 'number') {\n    // o agente respondeu com erro (ex.: OUT_OF_RANGE quando o buffer foi sobrescrito): ressincroniza\n    flow.set('ifx_proximo', null);\n    flow.set('ifx_instancia', null);\n    const m = String(msg.payload || '').match(/errorCode=\"([^\"]+)\"/);\n    texto = 'agente respondeu HTTP ' + msg.statusCode + (m ? ' (' + m[1] + ')' : '') + ' — ressincronizando';\n} else {\n    texto = 'sem conexão com o agente MTConnect (' + (msg.statusCode || msg.payload || 'erro') + ')';\n}\n\nnode.status({ fill: 'red', shape: 'ring', text: texto + ' · ' + new Date().toLocaleTimeString('pt-BR') });\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d82e5dea696695e8",
+        "type": "catch",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "erros de parsing",
+        "scope": [
+            "043bc7e723cb08e9",
+            "bdd9e6d009cbd9f4"
+        ],
+        "uncaught": false,
+        "x": 680,
+        "y": 560,
+        "wires": [
+            [
+                "e25cac8848bd6bc4"
+            ]
+        ]
+    },
+    {
+        "id": "25205f8da4c53a28",
+        "type": "debug",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "name": "pontos (ative para ver)",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload.length",
+        "statusType": "msg",
+        "x": 1520,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ca88ad4590900b32",
+        "type": "influxdb3-write",
+        "z": "fc7797aa9054848a",
+        "g": "cd52e94fdb0886c8",
+        "influxdb": "dab8b97ad33639de",
+        "name": "",
+        "measurement": "dadosVibracaoDireto",
+        "database": "dadosPrimarios",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 1320,
+        "y": 420,
+        "wires": [
+            [
+                "25205f8da4c53a28"
+            ]
+        ]
+    },
+    {
+        "id": "53b2e82549eb0df0",
+        "type": "mqtt-broker",
+        "name": "Server_Auxiliar",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "dab8b97ad33639de",
+        "type": "influxdb3-config",
+        "name": "Banco_ambiente",
+        "host": "http://localhost:8181",
+        "database": "dados_ambiente",
+        "tlsRejectUnauthorized": true,
+        "caCertPath": ""
+    },
+    {
+        "id": "9df6ccaa9992dd86",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-influxdb3": "1.1.1"
+        }
+    }
+]

@@ -1,0 +1,11 @@
+[2026-11-16 20:16:49.114] INICIO rodada=teste clientes=10 intervalo=5s qos=0 duracao=600s
+[2026-11-16 20:16:49.134] sensor_virtual_002 | CONNECT | Success
+[2026-11-16 20:16:49.149] sensor_virtual_003 | CONNECT | Success
+[2026-11-16 20:16:49.150] sensor_virtual_001 | CONNECT | Success
+[2026-11-16 20:16:49.155] sensor_virtual_004 | CONNECT | Success
+[2026-11-16 20:16:49.178] sensor_virtual_006 | CONNECT | Success
+[2026-11-16 20:16:49.180] sensor_virtual_005 | CONNECT | Success
+[2026-11-16 20:16:49.212] sensor_virtual_007 | CONNECT | Success
+[2026-11-16 20:16:49.216] sensor_virtual_008 | CONNECT | Success
+[2026-11-16 20:16:49.223] sensor_virtual_010 | CONNECT | Success
+[2026-11-16 20:16:49.232] sensor_virtual_009 | CONNECT | Success

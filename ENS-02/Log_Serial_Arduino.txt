@@ -1,0 +1,582 @@
+[uptime 00:00:01] Iniciando estacao BME280...
+[uptime 00:00:01] Sensor BME280 OK.
+[uptime 00:00:01] Conectando em: Rede_Local
+[uptime 00:00:03] Wi-Fi conectado! IP: 192.168.137.129
+[uptime 00:00:03] NTP configurado, aguardando sincronizacao...
+[24/10/2026 18:52:10] NTP sincronizado. Relogio ajustado.
+[24/10/2026 18:52:12] Tentando conexão MQTT...
+[24/10/2026 18:52:12] Conectado ao Broker MQTT!
+[24/10/2026 18:52:15] Dados enviados via MQTT | Epoch: 1792878735 | Payload: {"temperatura":22.32,"pressao":998.41,"umidade":72.85,"timestamp":1792878735}
+[24/10/2026 18:52:20] Dados enviados via MQTT | Epoch: 1792878740 | Payload: {"temperatura":22.32,"pressao":998.43,"umidade":72.69,"timestamp":1792878740}
+[24/10/2026 18:52:25] Dados enviados via MQTT | Epoch: 1792878745 | Payload: {"temperatura":22.33,"pressao":998.40,"umidade":72.70,"timestamp":1792878745}
+[24/10/2026 18:52:30] Dados enviados via MQTT | Epoch: 1792878750 | Payload: {"temperatura":22.34,"pressao":998.43,"umidade":72.66,"timestamp":1792878750}
+[24/10/2026 18:52:35] Dados enviados via MQTT | Epoch: 1792878755 | Payload: {"temperatura":22.35,"pressao":998.41,"umidade":72.63,"timestamp":1792878755}
+[24/10/2026 18:52:40] Dados enviados via MQTT | Epoch: 1792878760 | Payload: {"temperatura":22.35,"pressao":998.44,"umidade":72.66,"timestamp":1792878760}
+[24/10/2026 18:52:45] Dados enviados via MQTT | Epoch: 1792878765 | Payload: {"temperatura":22.35,"pressao":998.47,"umidade":72.61,"timestamp":1792878765}
+[24/10/2026 18:52:50] Dados enviados via MQTT | Epoch: 1792878770 | Payload: {"temperatura":22.36,"pressao":998.45,"umidade":72.61,"timestamp":1792878770}
+[24/10/2026 18:52:55] Dados enviados via MQTT | Epoch: 1792878775 | Payload: {"temperatura":22.37,"pressao":998.48,"umidade":72.58,"timestamp":1792878775}
+[24/10/2026 18:53:00] Dados enviados via MQTT | Epoch: 1792878780 | Payload: {"temperatura":22.37,"pressao":998.50,"umidade":72.54,"timestamp":1792878780}
+[24/10/2026 18:53:05] Dados enviados via MQTT | Epoch: 1792878785 | Payload: {"temperatura":22.38,"pressao":998.48,"umidade":72.53,"timestamp":1792878785}
+[24/10/2026 18:53:10] Dados enviados via MQTT | Epoch: 1792878790 | Payload: {"temperatura":22.38,"pressao":998.50,"umidade":72.61,"timestamp":1792878790}
+[24/10/2026 18:53:15] Dados enviados via MQTT | Epoch: 1792878795 | Payload: {"temperatura":22.40,"pressao":998.49,"umidade":72.64,"timestamp":1792878795}
+[24/10/2026 18:53:20] Dados enviados via MQTT | Epoch: 1792878800 | Payload: {"temperatura":22.40,"pressao":998.56,"umidade":72.64,"timestamp":1792878800}
+[24/10/2026 18:53:25] Dados enviados via MQTT | Epoch: 1792878805 | Payload: {"temperatura":22.40,"pressao":998.55,"umidade":72.59,"timestamp":1792878805}
+[24/10/2026 18:53:30] Dados enviados via MQTT | Epoch: 1792878810 | Payload: {"temperatura":22.40,"pressao":998.55,"umidade":72.60,"timestamp":1792878810}
+[24/10/2026 18:53:35] Dados enviados via MQTT | Epoch: 1792878815 | Payload: {"temperatura":22.41,"pressao":998.58,"umidade":72.59,"timestamp":1792878815}
+[24/10/2026 18:53:40] Dados enviados via MQTT | Epoch: 1792878820 | Payload: {"temperatura":22.41,"pressao":998.59,"umidade":72.55,"timestamp":1792878820}
+[24/10/2026 18:53:45] Dados enviados via MQTT | Epoch: 1792878825 | Payload: {"temperatura":22.41,"pressao":998.60,"umidade":72.49,"timestamp":1792878825}
+[24/10/2026 18:53:50] Dados enviados via MQTT | Epoch: 1792878830 | Payload: {"temperatura":22.42,"pressao":998.60,"umidade":72.46,"timestamp":1792878830}
+[24/10/2026 18:53:55] Dados enviados via MQTT | Epoch: 1792878835 | Payload: {"temperatura":22.42,"pressao":998.63,"umidade":72.47,"timestamp":1792878835}
+[24/10/2026 18:54:00] Dados enviados via MQTT | Epoch: 1792878840 | Payload: {"temperatura":22.42,"pressao":998.67,"umidade":72.46,"timestamp":1792878840}
+[24/10/2026 18:54:05] Dados enviados via MQTT | Epoch: 1792878845 | Payload: {"temperatura":22.42,"pressao":998.67,"umidade":72.45,"timestamp":1792878845}
+[24/10/2026 18:54:10] Dados enviados via MQTT | Epoch: 1792878850 | Payload: {"temperatura":22.43,"pressao":998.69,"umidade":72.45,"timestamp":1792878850}
+[24/10/2026 18:54:15] Dados enviados via MQTT | Epoch: 1792878855 | Payload: {"temperatura":22.43,"pressao":998.70,"umidade":72.33,"timestamp":1792878855}
+[24/10/2026 18:54:20] Dados enviados via MQTT | Epoch: 1792878860 | Payload: {"temperatura":22.43,"pressao":998.70,"umidade":72.48,"timestamp":1792878860}
+[24/10/2026 18:54:25] Dados enviados via MQTT | Epoch: 1792878865 | Payload: {"temperatura":22.44,"pressao":998.74,"umidade":72.47,"timestamp":1792878865}
+[24/10/2026 18:54:30] Dados enviados via MQTT | Epoch: 1792878870 | Payload: {"temperatura":22.44,"pressao":998.74,"umidade":72.44,"timestamp":1792878870}
+[24/10/2026 18:54:35] Dados enviados via MQTT | Epoch: 1792878875 | Payload: {"temperatura":22.44,"pressao":998.77,"umidade":72.44,"timestamp":1792878875}
+[24/10/2026 18:54:40] Dados enviados via MQTT | Epoch: 1792878880 | Payload: {"temperatura":22.45,"pressao":998.78,"umidade":72.44,"timestamp":1792878880}
+[24/10/2026 18:54:45] Dados enviados via MQTT | Epoch: 1792878885 | Payload: {"temperatura":22.45,"pressao":998.78,"umidade":72.46,"timestamp":1792878885}
+[24/10/2026 18:54:50] Dados enviados via MQTT | Epoch: 1792878890 | Payload: {"temperatura":22.45,"pressao":998.81,"umidade":72.45,"timestamp":1792878890}
+[24/10/2026 18:54:55] Dados enviados via MQTT | Epoch: 1792878895 | Payload: {"temperatura":22.45,"pressao":998.82,"umidade":72.50,"timestamp":1792878895}
+[24/10/2026 18:55:00] Dados enviados via MQTT | Epoch: 1792878900 | Payload: {"temperatura":22.44,"pressao":998.82,"umidade":72.50,"timestamp":1792878900}
+[24/10/2026 18:55:05] Dados enviados via MQTT | Epoch: 1792878905 | Payload: {"temperatura":22.44,"pressao":998.85,"umidade":72.47,"timestamp":1792878905}
+[24/10/2026 18:55:10] Dados enviados via MQTT | Epoch: 1792878910 | Payload: {"temperatura":22.45,"pressao":998.88,"umidade":72.47,"timestamp":1792878910}
+[24/10/2026 18:55:15] Dados enviados via MQTT | Epoch: 1792878915 | Payload: {"temperatura":22.45,"pressao":998.86,"umidade":72.47,"timestamp":1792878915}
+[24/10/2026 18:55:20] Dados enviados via MQTT | Epoch: 1792878920 | Payload: {"temperatura":22.47,"pressao":998.92,"umidade":72.47,"timestamp":1792878920}
+[24/10/2026 18:55:25] Dados enviados via MQTT | Epoch: 1792878925 | Payload: {"temperatura":22.47,"pressao":998.91,"umidade":72.46,"timestamp":1792878925}
+[24/10/2026 18:55:30] Dados enviados via MQTT | Epoch: 1792878930 | Payload: {"temperatura":22.47,"pressao":998.91,"umidade":72.43,"timestamp":1792878930}
+[24/10/2026 18:55:35] Dados enviados via MQTT | Epoch: 1792878935 | Payload: {"temperatura":22.47,"pressao":998.94,"umidade":72.39,"timestamp":1792878935}
+[24/10/2026 18:55:40] Dados enviados via MQTT | Epoch: 1792878940 | Payload: {"temperatura":22.47,"pressao":998.94,"umidade":72.46,"timestamp":1792878940}
+[24/10/2026 18:55:45] Dados enviados via MQTT | Epoch: 1792878945 | Payload: {"temperatura":22.47,"pressao":998.96,"umidade":72.37,"timestamp":1792878945}
+[24/10/2026 18:55:50] Dados enviados via MQTT | Epoch: 1792878950 | Payload: {"temperatura":22.48,"pressao":998.91,"umidade":72.35,"timestamp":1792878950}
+[24/10/2026 18:55:55] Dados enviados via MQTT | Epoch: 1792878955 | Payload: {"temperatura":22.48,"pressao":998.97,"umidade":72.41,"timestamp":1792878955}
+[24/10/2026 18:56:00] Dados enviados via MQTT | Epoch: 1792878960 | Payload: {"temperatura":22.48,"pressao":998.95,"umidade":72.39,"timestamp":1792878960}
+[24/10/2026 18:56:05] Dados enviados via MQTT | Epoch: 1792878965 | Payload: {"temperatura":22.48,"pressao":998.98,"umidade":72.42,"timestamp":1792878965}
+[24/10/2026 18:56:10] Dados enviados via MQTT | Epoch: 1792878970 | Payload: {"temperatura":22.47,"pressao":998.97,"umidade":72.40,"timestamp":1792878970}
+[24/10/2026 18:56:15] Dados enviados via MQTT | Epoch: 1792878975 | Payload: {"temperatura":22.47,"pressao":999.00,"umidade":72.44,"timestamp":1792878975}
+[24/10/2026 18:56:20] Dados enviados via MQTT | Epoch: 1792878980 | Payload: {"temperatura":22.47,"pressao":998.96,"umidade":72.51,"timestamp":1792878980}
+[24/10/2026 18:56:25] Dados enviados via MQTT | Epoch: 1792878985 | Payload: {"temperatura":22.46,"pressao":999.02,"umidade":72.45,"timestamp":1792878985}
+[24/10/2026 18:56:30] Dados enviados via MQTT | Epoch: 1792878990 | Payload: {"temperatura":22.46,"pressao":999.03,"umidade":72.51,"timestamp":1792878990}
+[24/10/2026 18:56:35] Dados enviados via MQTT | Epoch: 1792878995 | Payload: {"temperatura":22.48,"pressao":999.03,"umidade":72.46,"timestamp":1792878995}
+[24/10/2026 18:56:40] Dados enviados via MQTT | Epoch: 1792879000 | Payload: {"temperatura":22.48,"pressao":999.01,"umidade":72.45,"timestamp":1792879000}
+[24/10/2026 18:56:45] Dados enviados via MQTT | Epoch: 1792879005 | Payload: {"temperatura":22.47,"pressao":999.01,"umidade":72.46,"timestamp":1792879005}
+[24/10/2026 18:56:50] Dados enviados via MQTT | Epoch: 1792879010 | Payload: {"temperatura":22.48,"pressao":999.02,"umidade":72.46,"timestamp":1792879010}
+[24/10/2026 18:56:55] Dados enviados via MQTT | Epoch: 1792879015 | Payload: {"temperatura":22.49,"pressao":999.03,"umidade":72.48,"timestamp":1792879015}
+[24/10/2026 18:57:00] Dados enviados via MQTT | Epoch: 1792879020 | Payload: {"temperatura":22.50,"pressao":999.10,"umidade":72.48,"timestamp":1792879020}
+[24/10/2026 18:57:05] Dados enviados via MQTT | Epoch: 1792879025 | Payload: {"temperatura":22.49,"pressao":999.05,"umidade":72.42,"timestamp":1792879025}
+[24/10/2026 18:57:10] Dados enviados via MQTT | Epoch: 1792879030 | Payload: {"temperatura":22.50,"pressao":999.04,"umidade":72.46,"timestamp":1792879030}
+[24/10/2026 18:57:15] Dados enviados via MQTT | Epoch: 1792879035 | Payload: {"temperatura":22.50,"pressao":999.05,"umidade":72.47,"timestamp":1792879035}
+[24/10/2026 18:57:20] Dados enviados via MQTT | Epoch: 1792879040 | Payload: {"temperatura":22.49,"pressao":999.04,"umidade":72.44,"timestamp":1792879040}
+[24/10/2026 18:57:25] Dados enviados via MQTT | Epoch: 1792879045 | Payload: {"temperatura":22.50,"pressao":999.06,"umidade":72.44,"timestamp":1792879045}
+[24/10/2026 18:57:30] Dados enviados via MQTT | Epoch: 1792879050 | Payload: {"temperatura":22.50,"pressao":999.07,"umidade":72.49,"timestamp":1792879050}
+[24/10/2026 18:57:35] Dados enviados via MQTT | Epoch: 1792879055 | Payload: {"temperatura":22.49,"pressao":999.05,"umidade":72.43,"timestamp":1792879055}
+[24/10/2026 18:57:40] Dados enviados via MQTT | Epoch: 1792879060 | Payload: {"temperatura":22.49,"pressao":999.09,"umidade":72.41,"timestamp":1792879060}
+[24/10/2026 18:57:45] Dados enviados via MQTT | Epoch: 1792879065 | Payload: {"temperatura":22.49,"pressao":999.05,"umidade":72.44,"timestamp":1792879065}
+[24/10/2026 18:57:50] Dados enviados via MQTT | Epoch: 1792879070 | Payload: {"temperatura":22.50,"pressao":999.04,"umidade":72.42,"timestamp":1792879070}
+[24/10/2026 18:57:55] Dados enviados via MQTT | Epoch: 1792879075 | Payload: {"temperatura":22.50,"pressao":999.11,"umidade":72.48,"timestamp":1792879075}
+[24/10/2026 18:58:00] Dados enviados via MQTT | Epoch: 1792879080 | Payload: {"temperatura":22.50,"pressao":999.13,"umidade":72.42,"timestamp":1792879080}
+[24/10/2026 18:58:05] Dados enviados via MQTT | Epoch: 1792879085 | Payload: {"temperatura":22.50,"pressao":999.11,"umidade":72.46,"timestamp":1792879085}
+[24/10/2026 18:58:10] Dados enviados via MQTT | Epoch: 1792879090 | Payload: {"temperatura":22.50,"pressao":999.12,"umidade":72.48,"timestamp":1792879090}
+[24/10/2026 18:58:15] Dados enviados via MQTT | Epoch: 1792879095 | Payload: {"temperatura":22.49,"pressao":999.08,"umidade":72.47,"timestamp":1792879095}
+[24/10/2026 18:58:20] Dados enviados via MQTT | Epoch: 1792879100 | Payload: {"temperatura":22.50,"pressao":999.12,"umidade":72.44,"timestamp":1792879100}
+[24/10/2026 18:58:25] Dados enviados via MQTT | Epoch: 1792879105 | Payload: {"temperatura":22.50,"pressao":999.11,"umidade":72.46,"timestamp":1792879105}
+[24/10/2026 18:58:30] Dados enviados via MQTT | Epoch: 1792879110 | Payload: {"temperatura":22.50,"pressao":999.14,"umidade":72.49,"timestamp":1792879110}
+[24/10/2026 18:58:35] Dados enviados via MQTT | Epoch: 1792879115 | Payload: {"temperatura":22.50,"pressao":999.10,"umidade":72.43,"timestamp":1792879115}
+[24/10/2026 18:58:40] Dados enviados via MQTT | Epoch: 1792879120 | Payload: {"temperatura":22.50,"pressao":999.12,"umidade":72.46,"timestamp":1792879120}
+[24/10/2026 18:58:45] Dados enviados via MQTT | Epoch: 1792879125 | Payload: {"temperatura":22.50,"pressao":999.10,"umidade":72.47,"timestamp":1792879125}
+[24/10/2026 18:58:50] Dados enviados via MQTT | Epoch: 1792879130 | Payload: {"temperatura":22.51,"pressao":999.11,"umidade":72.48,"timestamp":1792879130}
+[24/10/2026 18:58:55] Dados enviados via MQTT | Epoch: 1792879135 | Payload: {"temperatura":22.50,"pressao":999.10,"umidade":72.39,"timestamp":1792879135}
+[24/10/2026 18:59:00] Dados enviados via MQTT | Epoch: 1792879140 | Payload: {"temperatura":22.51,"pressao":999.12,"umidade":72.45,"timestamp":1792879140}
+[24/10/2026 18:59:05] Dados enviados via MQTT | Epoch: 1792879145 | Payload: {"temperatura":22.51,"pressao":999.18,"umidade":72.47,"timestamp":1792879145}
+[24/10/2026 18:59:10] Dados enviados via MQTT | Epoch: 1792879150 | Payload: {"temperatura":22.51,"pressao":999.13,"umidade":72.54,"timestamp":1792879150}
+[24/10/2026 18:59:15] Dados enviados via MQTT | Epoch: 1792879155 | Payload: {"temperatura":22.50,"pressao":999.13,"umidade":72.49,"timestamp":1792879155}
+[24/10/2026 18:59:20] Dados enviados via MQTT | Epoch: 1792879160 | Payload: {"temperatura":22.51,"pressao":999.17,"umidade":72.48,"timestamp":1792879160}
+[24/10/2026 18:59:25] Dados enviados via MQTT | Epoch: 1792879165 | Payload: {"temperatura":22.50,"pressao":999.13,"umidade":72.46,"timestamp":1792879165}
+[24/10/2026 18:59:30] Dados enviados via MQTT | Epoch: 1792879170 | Payload: {"temperatura":22.50,"pressao":999.18,"umidade":72.48,"timestamp":1792879170}
+[24/10/2026 18:59:35] Dados enviados via MQTT | Epoch: 1792879175 | Payload: {"temperatura":22.50,"pressao":999.15,"umidade":72.50,"timestamp":1792879175}
+[24/10/2026 18:59:40] Dados enviados via MQTT | Epoch: 1792879180 | Payload: {"temperatura":22.49,"pressao":999.14,"umidade":72.55,"timestamp":1792879180}
+[24/10/2026 18:59:45] Dados enviados via MQTT | Epoch: 1792879185 | Payload: {"temperatura":22.50,"pressao":999.19,"umidade":72.56,"timestamp":1792879185}
+[24/10/2026 18:59:50] Dados enviados via MQTT | Epoch: 1792879190 | Payload: {"temperatura":22.50,"pressao":999.17,"umidade":72.54,"timestamp":1792879190}
+[24/10/2026 18:59:55] Dados enviados via MQTT | Epoch: 1792879195 | Payload: {"temperatura":22.49,"pressao":999.15,"umidade":72.52,"timestamp":1792879195}
+[24/10/2026 19:00:00] Dados enviados via MQTT | Epoch: 1792879200 | Payload: {"temperatura":22.51,"pressao":999.15,"umidade":72.58,"timestamp":1792879200}
+[24/10/2026 19:00:05] Dados enviados via MQTT | Epoch: 1792879205 | Payload: {"temperatura":22.52,"pressao":999.16,"umidade":72.55,"timestamp":1792879205}
+[24/10/2026 19:00:10] Dados enviados via MQTT | Epoch: 1792879210 | Payload: {"temperatura":22.51,"pressao":999.17,"umidade":72.55,"timestamp":1792879210}
+[24/10/2026 19:00:15] Dados enviados via MQTT | Epoch: 1792879215 | Payload: {"temperatura":22.50,"pressao":999.19,"umidade":72.51,"timestamp":1792879215}
+[24/10/2026 19:00:20] Dados enviados via MQTT | Epoch: 1792879220 | Payload: {"temperatura":22.51,"pressao":999.17,"umidade":72.54,"timestamp":1792879220}
+[24/10/2026 19:00:25] Dados enviados via MQTT | Epoch: 1792879225 | Payload: {"temperatura":22.51,"pressao":999.17,"umidade":72.57,"timestamp":1792879225}
+[24/10/2026 19:00:30] Dados enviados via MQTT | Epoch: 1792879230 | Payload: {"temperatura":22.51,"pressao":999.21,"umidade":72.56,"timestamp":1792879230}
+[24/10/2026 19:00:35] Dados enviados via MQTT | Epoch: 1792879235 | Payload: {"temperatura":22.51,"pressao":999.17,"umidade":72.54,"timestamp":1792879235}
+[24/10/2026 19:00:40] Dados enviados via MQTT | Epoch: 1792879240 | Payload: {"temperatura":22.51,"pressao":999.18,"umidade":72.57,"timestamp":1792879240}
+[24/10/2026 19:00:45] Dados enviados via MQTT | Epoch: 1792879245 | Payload: {"temperatura":22.50,"pressao":999.17,"umidade":72.61,"timestamp":1792879245}
+[24/10/2026 19:00:50] Dados enviados via MQTT | Epoch: 1792879250 | Payload: {"temperatura":22.50,"pressao":999.18,"umidade":72.60,"timestamp":1792879250}
+[24/10/2026 19:00:55] Dados enviados via MQTT | Epoch: 1792879255 | Payload: {"temperatura":22.51,"pressao":999.20,"umidade":72.62,"timestamp":1792879255}
+[24/10/2026 19:01:00] Dados enviados via MQTT | Epoch: 1792879260 | Payload: {"temperatura":22.51,"pressao":999.15,"umidade":72.61,"timestamp":1792879260}
+[24/10/2026 19:01:05] Dados enviados via MQTT | Epoch: 1792879265 | Payload: {"temperatura":22.50,"pressao":999.15,"umidade":72.60,"timestamp":1792879265}
+[24/10/2026 19:01:10] Dados enviados via MQTT | Epoch: 1792879270 | Payload: {"temperatura":22.50,"pressao":999.18,"umidade":72.59,"timestamp":1792879270}
+[24/10/2026 19:01:15] Dados enviados via MQTT | Epoch: 1792879275 | Payload: {"temperatura":22.50,"pressao":999.19,"umidade":72.60,"timestamp":1792879275}
+[24/10/2026 19:01:20] Dados enviados via MQTT | Epoch: 1792879280 | Payload: {"temperatura":22.51,"pressao":999.18,"umidade":72.63,"timestamp":1792879280}
+[24/10/2026 19:01:25] Dados enviados via MQTT | Epoch: 1792879285 | Payload: {"temperatura":22.51,"pressao":999.20,"umidade":72.58,"timestamp":1792879285}
+[24/10/2026 19:01:30] Dados enviados via MQTT | Epoch: 1792879290 | Payload: {"temperatura":22.51,"pressao":999.18,"umidade":72.56,"timestamp":1792879290}
+[24/10/2026 19:01:35] Dados enviados via MQTT | Epoch: 1792879295 | Payload: {"temperatura":22.50,"pressao":999.18,"umidade":72.57,"timestamp":1792879295}
+[24/10/2026 19:01:40] Dados enviados via MQTT | Epoch: 1792879300 | Payload: {"temperatura":22.51,"pressao":999.17,"umidade":72.62,"timestamp":1792879300}
+[24/10/2026 19:01:45] Dados enviados via MQTT | Epoch: 1792879305 | Payload: {"temperatura":22.51,"pressao":999.18,"umidade":72.57,"timestamp":1792879305}
+[24/10/2026 19:01:50] Dados enviados via MQTT | Epoch: 1792879310 | Payload: {"temperatura":22.51,"pressao":999.18,"umidade":72.60,"timestamp":1792879310}
+[24/10/2026 19:01:55] Dados enviados via MQTT | Epoch: 1792879315 | Payload: {"temperatura":22.51,"pressao":999.19,"umidade":72.60,"timestamp":1792879315}
+[24/10/2026 19:02:00] Dados enviados via MQTT | Epoch: 1792879320 | Payload: {"temperatura":22.51,"pressao":999.18,"umidade":72.58,"timestamp":1792879320}
+[24/10/2026 19:02:05] Dados enviados via MQTT | Epoch: 1792879325 | Payload: {"temperatura":22.51,"pressao":999.20,"umidade":72.60,"timestamp":1792879325}
+[24/10/2026 19:02:10] Dados enviados via MQTT | Epoch: 1792879330 | Payload: {"temperatura":22.51,"pressao":999.18,"umidade":72.60,"timestamp":1792879330}
+[24/10/2026 19:02:15] Dados enviados via MQTT | Epoch: 1792879335 | Payload: {"temperatura":22.51,"pressao":999.20,"umidade":72.61,"timestamp":1792879335}
+[24/10/2026 19:02:20] Dados enviados via MQTT | Epoch: 1792879340 | Payload: {"temperatura":22.51,"pressao":999.20,"umidade":72.62,"timestamp":1792879340}
+[24/10/2026 19:02:25] Dados enviados via MQTT | Epoch: 1792879345 | Payload: {"temperatura":22.50,"pressao":999.21,"umidade":72.62,"timestamp":1792879345}
+[24/10/2026 19:02:30] Dados enviados via MQTT | Epoch: 1792879350 | Payload: {"temperatura":22.51,"pressao":999.22,"umidade":72.67,"timestamp":1792879350}
+[24/10/2026 19:02:35] Dados enviados via MQTT | Epoch: 1792879355 | Payload: {"temperatura":22.51,"pressao":999.19,"umidade":72.62,"timestamp":1792879355}
+[24/10/2026 19:02:40] Dados enviados via MQTT | Epoch: 1792879360 | Payload: {"temperatura":22.51,"pressao":999.21,"umidade":72.64,"timestamp":1792879360}
+[24/10/2026 19:02:45] Dados enviados via MQTT | Epoch: 1792879365 | Payload: {"temperatura":22.52,"pressao":999.21,"umidade":72.56,"timestamp":1792879365}
+[24/10/2026 19:02:50] Dados enviados via MQTT | Epoch: 1792879370 | Payload: {"temperatura":22.52,"pressao":999.23,"umidade":72.67,"timestamp":1792879370}
+[24/10/2026 19:02:55] Dados enviados via MQTT | Epoch: 1792879375 | Payload: {"temperatura":22.53,"pressao":999.24,"umidade":72.66,"timestamp":1792879375}
+[24/10/2026 19:03:00] Dados enviados via MQTT | Epoch: 1792879380 | Payload: {"temperatura":22.52,"pressao":999.25,"umidade":72.64,"timestamp":1792879380}
+[24/10/2026 19:03:05] Dados enviados via MQTT | Epoch: 1792879385 | Payload: {"temperatura":22.52,"pressao":999.25,"umidade":72.48,"timestamp":1792879385}
+[24/10/2026 19:03:10] Dados enviados via MQTT | Epoch: 1792879390 | Payload: {"temperatura":22.52,"pressao":999.24,"umidade":72.67,"timestamp":1792879390}
+[24/10/2026 19:03:15] Dados enviados via MQTT | Epoch: 1792879395 | Payload: {"temperatura":22.53,"pressao":999.24,"umidade":72.67,"timestamp":1792879395}
+[24/10/2026 19:03:20] Dados enviados via MQTT | Epoch: 1792879400 | Payload: {"temperatura":22.52,"pressao":999.21,"umidade":72.63,"timestamp":1792879400}
+[24/10/2026 19:03:25] Dados enviados via MQTT | Epoch: 1792879405 | Payload: {"temperatura":22.53,"pressao":999.27,"umidade":72.65,"timestamp":1792879405}
+[24/10/2026 19:03:25] ALERTA: Wi-Fi caiu!
+[24/10/2026 19:03:25] ALERTA: conexao MQTT caiu! (estado=-3)
+[24/10/2026 19:03:32] Conectando em: Rede_Local
+E (700162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:03:37] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:03:42] Conectando em: Rede_Local
+E (710162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:03:47] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:03:52] Conectando em: Rede_Local
+E (720162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:03:57] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:04:02] Conectando em: Rede_Local
+E (730162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:04:07] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:04:12] Conectando em: Rede_Local
+E (740162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:04:17] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:04:22] Conectando em: Rede_Local
+E (750162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:04:27] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:04:32] Conectando em: Rede_Local
+E (760162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:04:37] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:04:41] Wi-Fi restabelecido apos 75 s fora do ar.
+[24/10/2026 19:04:42] Tentando conexão MQTT...
+[24/10/2026 19:04:42] Conectado ao Broker MQTT!
+[24/10/2026 19:04:42] Dados enviados via MQTT | Epoch: 1792879482 | Payload: {"temperatura":22.56,"pressao":999.36,"umidade":72.59,"timestamp":1792879482}
+[24/10/2026 19:04:42] MQTT restabelecido apos 77 s fora do ar.
+[24/10/2026 19:04:47] Dados enviados via MQTT | Epoch: 1792879487 | Payload: {"temperatura":22.55,"pressao":999.34,"umidade":72.65,"timestamp":1792879487}
+[24/10/2026 19:04:52] Dados enviados via MQTT | Epoch: 1792879492 | Payload: {"temperatura":22.55,"pressao":999.37,"umidade":72.62,"timestamp":1792879492}
+[24/10/2026 19:04:57] Dados enviados via MQTT | Epoch: 1792879497 | Payload: {"temperatura":22.56,"pressao":999.37,"umidade":72.61,"timestamp":1792879497}
+[24/10/2026 19:05:02] Dados enviados via MQTT | Epoch: 1792879502 | Payload: {"temperatura":22.56,"pressao":999.39,"umidade":72.62,"timestamp":1792879502}
+[24/10/2026 19:05:07] Dados enviados via MQTT | Epoch: 1792879507 | Payload: {"temperatura":22.57,"pressao":999.40,"umidade":72.62,"timestamp":1792879507}
+[24/10/2026 19:05:12] Dados enviados via MQTT | Epoch: 1792879512 | Payload: {"temperatura":22.56,"pressao":999.41,"umidade":72.64,"timestamp":1792879512}
+[24/10/2026 19:05:17] Dados enviados via MQTT | Epoch: 1792879517 | Payload: {"temperatura":22.56,"pressao":999.40,"umidade":72.63,"timestamp":1792879517}
+[24/10/2026 19:05:22] Dados enviados via MQTT | Epoch: 1792879522 | Payload: {"temperatura":22.57,"pressao":999.40,"umidade":72.68,"timestamp":1792879522}
+[24/10/2026 19:05:27] Dados enviados via MQTT | Epoch: 1792879527 | Payload: {"temperatura":22.56,"pressao":999.41,"umidade":72.64,"timestamp":1792879527}
+[24/10/2026 19:05:32] Dados enviados via MQTT | Epoch: 1792879532 | Payload: {"temperatura":22.57,"pressao":999.41,"umidade":72.65,"timestamp":1792879532}
+[24/10/2026 19:05:37] Dados enviados via MQTT | Epoch: 1792879537 | Payload: {"temperatura":22.57,"pressao":999.40,"umidade":72.67,"timestamp":1792879537}
+[24/10/2026 19:05:42] Dados enviados via MQTT | Epoch: 1792879542 | Payload: {"temperatura":22.58,"pressao":999.39,"umidade":72.66,"timestamp":1792879542}
+[24/10/2026 19:05:47] Dados enviados via MQTT | Epoch: 1792879547 | Payload: {"temperatura":22.60,"pressao":999.42,"umidade":72.68,"timestamp":1792879547}
+[24/10/2026 19:05:52] Dados enviados via MQTT | Epoch: 1792879552 | Payload: {"temperatura":22.58,"pressao":999.44,"umidade":72.29,"timestamp":1792879552}
+[24/10/2026 19:05:57] Dados enviados via MQTT | Epoch: 1792879557 | Payload: {"temperatura":22.53,"pressao":999.39,"umidade":71.60,"timestamp":1792879557}
+[24/10/2026 19:06:02] Dados enviados via MQTT | Epoch: 1792879562 | Payload: {"temperatura":22.52,"pressao":999.46,"umidade":71.64,"timestamp":1792879562}
+[24/10/2026 19:06:07] Dados enviados via MQTT | Epoch: 1792879567 | Payload: {"temperatura":22.48,"pressao":999.41,"umidade":71.11,"timestamp":1792879567}
+[24/10/2026 19:06:12] Dados enviados via MQTT | Epoch: 1792879572 | Payload: {"temperatura":22.49,"pressao":999.42,"umidade":71.93,"timestamp":1792879572}
+[24/10/2026 19:06:17] Dados enviados via MQTT | Epoch: 1792879577 | Payload: {"temperatura":22.49,"pressao":999.43,"umidade":72.01,"timestamp":1792879577}
+[24/10/2026 19:06:22] Dados enviados via MQTT | Epoch: 1792879582 | Payload: {"temperatura":22.49,"pressao":999.44,"umidade":71.57,"timestamp":1792879582}
+[24/10/2026 19:06:27] Dados enviados via MQTT | Epoch: 1792879587 | Payload: {"temperatura":22.48,"pressao":999.45,"umidade":71.43,"timestamp":1792879587}
+[24/10/2026 19:06:32] Dados enviados via MQTT | Epoch: 1792879592 | Payload: {"temperatura":22.43,"pressao":999.48,"umidade":70.91,"timestamp":1792879592}
+[24/10/2026 19:06:37] Dados enviados via MQTT | Epoch: 1792879597 | Payload: {"temperatura":22.44,"pressao":999.47,"umidade":71.18,"timestamp":1792879597}
+[24/10/2026 19:06:42] Dados enviados via MQTT | Epoch: 1792879602 | Payload: {"temperatura":22.45,"pressao":999.46,"umidade":71.70,"timestamp":1792879602}
+[24/10/2026 19:06:47] Dados enviados via MQTT | Epoch: 1792879607 | Payload: {"temperatura":22.44,"pressao":999.44,"umidade":71.98,"timestamp":1792879607}
+[24/10/2026 19:06:52] Dados enviados via MQTT | Epoch: 1792879612 | Payload: {"temperatura":22.44,"pressao":999.45,"umidade":72.18,"timestamp":1792879612}
+[24/10/2026 19:06:57] Dados enviados via MQTT | Epoch: 1792879617 | Payload: {"temperatura":22.45,"pressao":999.46,"umidade":72.26,"timestamp":1792879617}
+[24/10/2026 19:07:02] Dados enviados via MQTT | Epoch: 1792879622 | Payload: {"temperatura":22.44,"pressao":999.47,"umidade":72.38,"timestamp":1792879622}
+[24/10/2026 19:07:07] Dados enviados via MQTT | Epoch: 1792879627 | Payload: {"temperatura":22.45,"pressao":999.44,"umidade":72.26,"timestamp":1792879627}
+[24/10/2026 19:07:12] Dados enviados via MQTT | Epoch: 1792879632 | Payload: {"temperatura":22.45,"pressao":999.46,"umidade":72.19,"timestamp":1792879632}
+[24/10/2026 19:07:17] Dados enviados via MQTT | Epoch: 1792879637 | Payload: {"temperatura":22.44,"pressao":999.50,"umidade":72.24,"timestamp":1792879637}
+[24/10/2026 19:07:22] Dados enviados via MQTT | Epoch: 1792879642 | Payload: {"temperatura":22.44,"pressao":999.47,"umidade":72.08,"timestamp":1792879642}
+[24/10/2026 19:07:27] Dados enviados via MQTT | Epoch: 1792879647 | Payload: {"temperatura":22.44,"pressao":999.47,"umidade":72.06,"timestamp":1792879647}
+[24/10/2026 19:07:32] Dados enviados via MQTT | Epoch: 1792879652 | Payload: {"temperatura":22.44,"pressao":999.48,"umidade":72.10,"timestamp":1792879652}
+[24/10/2026 19:07:37] Dados enviados via MQTT | Epoch: 1792879657 | Payload: {"temperatura":22.43,"pressao":999.46,"umidade":72.11,"timestamp":1792879657}
+[24/10/2026 19:07:42] Dados enviados via MQTT | Epoch: 1792879662 | Payload: {"temperatura":22.39,"pressao":999.46,"umidade":71.72,"timestamp":1792879662}
+[24/10/2026 19:07:47] Dados enviados via MQTT | Epoch: 1792879667 | Payload: {"temperatura":22.37,"pressao":999.47,"umidade":71.65,"timestamp":1792879667}
+[24/10/2026 19:07:52] Dados enviados via MQTT | Epoch: 1792879672 | Payload: {"temperatura":22.38,"pressao":999.44,"umidade":71.81,"timestamp":1792879672}
+[24/10/2026 19:07:57] Dados enviados via MQTT | Epoch: 1792879677 | Payload: {"temperatura":22.38,"pressao":999.49,"umidade":71.97,"timestamp":1792879677}
+[24/10/2026 19:08:02] Dados enviados via MQTT | Epoch: 1792879682 | Payload: {"temperatura":22.38,"pressao":999.45,"umidade":72.17,"timestamp":1792879682}
+[24/10/2026 19:08:07] Dados enviados via MQTT | Epoch: 1792879687 | Payload: {"temperatura":22.38,"pressao":999.46,"umidade":72.24,"timestamp":1792879687}
+[24/10/2026 19:08:12] Dados enviados via MQTT | Epoch: 1792879692 | Payload: {"temperatura":22.39,"pressao":999.46,"umidade":72.26,"timestamp":1792879692}
+[24/10/2026 19:08:17] Dados enviados via MQTT | Epoch: 1792879697 | Payload: {"temperatura":22.38,"pressao":999.45,"umidade":72.26,"timestamp":1792879697}
+[24/10/2026 19:08:22] Dados enviados via MQTT | Epoch: 1792879702 | Payload: {"temperatura":22.39,"pressao":999.49,"umidade":72.30,"timestamp":1792879702}
+[24/10/2026 19:08:25] ALERTA: Wi-Fi caiu!
+[24/10/2026 19:08:25] ALERTA: conexao MQTT caiu! (estado=-3)
+[24/10/2026 19:08:32] Conectando em: Rede_Local
+E (1000162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:08:37] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:08:42] Conectando em: Rede_Local
+E (1010162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:08:47] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:08:51] Wi-Fi restabelecido apos 26 s fora do ar.
+[24/10/2026 19:08:52] Tentando conexão MQTT...
+[24/10/2026 19:08:52] Conectado ao Broker MQTT!
+[24/10/2026 19:08:52] Dados enviados via MQTT | Epoch: 1792879732 | Payload: {"temperatura":22.40,"pressao":999.50,"umidade":72.36,"timestamp":1792879732}
+[24/10/2026 19:08:52] MQTT restabelecido apos 27 s fora do ar.
+[24/10/2026 19:08:57] Dados enviados via MQTT | Epoch: 1792879737 | Payload: {"temperatura":22.40,"pressao":999.46,"umidade":72.31,"timestamp":1792879737}
+[24/10/2026 19:09:02] Dados enviados via MQTT | Epoch: 1792879742 | Payload: {"temperatura":22.40,"pressao":999.51,"umidade":72.30,"timestamp":1792879742}
+[24/10/2026 19:09:07] Dados enviados via MQTT | Epoch: 1792879747 | Payload: {"temperatura":22.41,"pressao":999.49,"umidade":72.32,"timestamp":1792879747}
+[24/10/2026 19:09:12] Dados enviados via MQTT | Epoch: 1792879752 | Payload: {"temperatura":22.41,"pressao":999.48,"umidade":72.32,"timestamp":1792879752}
+[24/10/2026 19:09:17] Dados enviados via MQTT | Epoch: 1792879757 | Payload: {"temperatura":22.41,"pressao":999.50,"umidade":72.32,"timestamp":1792879757}
+[24/10/2026 19:09:22] Dados enviados via MQTT | Epoch: 1792879762 | Payload: {"temperatura":22.41,"pressao":999.52,"umidade":72.36,"timestamp":1792879762}
+[24/10/2026 19:09:27] Dados enviados via MQTT | Epoch: 1792879767 | Payload: {"temperatura":22.41,"pressao":999.50,"umidade":72.40,"timestamp":1792879767}
+[24/10/2026 19:09:32] Dados enviados via MQTT | Epoch: 1792879772 | Payload: {"temperatura":22.41,"pressao":999.52,"umidade":72.44,"timestamp":1792879772}
+[24/10/2026 19:09:37] Dados enviados via MQTT | Epoch: 1792879777 | Payload: {"temperatura":22.41,"pressao":999.52,"umidade":72.45,"timestamp":1792879777}
+[24/10/2026 19:09:42] Dados enviados via MQTT | Epoch: 1792879782 | Payload: {"temperatura":22.41,"pressao":999.52,"umidade":72.42,"timestamp":1792879782}
+[24/10/2026 19:09:47] Dados enviados via MQTT | Epoch: 1792879787 | Payload: {"temperatura":22.41,"pressao":999.54,"umidade":72.46,"timestamp":1792879787}
+[24/10/2026 19:09:52] Dados enviados via MQTT | Epoch: 1792879792 | Payload: {"temperatura":22.41,"pressao":999.54,"umidade":72.45,"timestamp":1792879792}
+[24/10/2026 19:09:57] Dados enviados via MQTT | Epoch: 1792879797 | Payload: {"temperatura":22.40,"pressao":999.56,"umidade":72.47,"timestamp":1792879797}
+[24/10/2026 19:10:02] Dados enviados via MQTT | Epoch: 1792879802 | Payload: {"temperatura":22.41,"pressao":999.57,"umidade":72.53,"timestamp":1792879802}
+[24/10/2026 19:10:07] Dados enviados via MQTT | Epoch: 1792879807 | Payload: {"temperatura":22.41,"pressao":999.54,"umidade":72.52,"timestamp":1792879807}
+[24/10/2026 19:10:12] Dados enviados via MQTT | Epoch: 1792879812 | Payload: {"temperatura":22.41,"pressao":999.57,"umidade":72.47,"timestamp":1792879812}
+[24/10/2026 19:10:17] Dados enviados via MQTT | Epoch: 1792879817 | Payload: {"temperatura":22.40,"pressao":999.55,"umidade":72.54,"timestamp":1792879817}
+[24/10/2026 19:10:22] Dados enviados via MQTT | Epoch: 1792879822 | Payload: {"temperatura":22.41,"pressao":999.55,"umidade":72.52,"timestamp":1792879822}
+[24/10/2026 19:10:27] Dados enviados via MQTT | Epoch: 1792879827 | Payload: {"temperatura":22.42,"pressao":999.59,"umidade":72.52,"timestamp":1792879827}
+[24/10/2026 19:10:32] Dados enviados via MQTT | Epoch: 1792879832 | Payload: {"temperatura":22.41,"pressao":999.59,"umidade":72.56,"timestamp":1792879832}
+[24/10/2026 19:10:37] Dados enviados via MQTT | Epoch: 1792879837 | Payload: {"temperatura":22.41,"pressao":999.60,"umidade":72.53,"timestamp":1792879837}
+[24/10/2026 19:10:42] Dados enviados via MQTT | Epoch: 1792879842 | Payload: {"temperatura":22.42,"pressao":999.60,"umidade":72.51,"timestamp":1792879842}
+[24/10/2026 19:10:47] Dados enviados via MQTT | Epoch: 1792879847 | Payload: {"temperatura":22.42,"pressao":999.61,"umidade":72.51,"timestamp":1792879847}
+[24/10/2026 19:10:52] Dados enviados via MQTT | Epoch: 1792879852 | Payload: {"temperatura":22.43,"pressao":999.59,"umidade":72.54,"timestamp":1792879852}
+[24/10/2026 19:10:57] Dados enviados via MQTT | Epoch: 1792879857 | Payload: {"temperatura":22.44,"pressao":999.62,"umidade":72.54,"timestamp":1792879857}
+[24/10/2026 19:11:02] Dados enviados via MQTT | Epoch: 1792879862 | Payload: {"temperatura":22.44,"pressao":999.57,"umidade":72.40,"timestamp":1792879862}
+[24/10/2026 19:11:07] Dados enviados via MQTT | Epoch: 1792879867 | Payload: {"temperatura":22.45,"pressao":999.60,"umidade":72.54,"timestamp":1792879867}
+[24/10/2026 19:11:12] Dados enviados via MQTT | Epoch: 1792879872 | Payload: {"temperatura":22.45,"pressao":999.59,"umidade":72.48,"timestamp":1792879872}
+[24/10/2026 19:11:17] Dados enviados via MQTT | Epoch: 1792879877 | Payload: {"temperatura":22.45,"pressao":999.58,"umidade":72.50,"timestamp":1792879877}
+[24/10/2026 19:11:22] Dados enviados via MQTT | Epoch: 1792879882 | Payload: {"temperatura":22.45,"pressao":999.58,"umidade":72.42,"timestamp":1792879882}
+[24/10/2026 19:11:27] Dados enviados via MQTT | Epoch: 1792879887 | Payload: {"temperatura":22.45,"pressao":999.58,"umidade":72.41,"timestamp":1792879887}
+[24/10/2026 19:11:32] Dados enviados via MQTT | Epoch: 1792879892 | Payload: {"temperatura":22.45,"pressao":999.58,"umidade":72.46,"timestamp":1792879892}
+[24/10/2026 19:11:37] Dados enviados via MQTT | Epoch: 1792879897 | Payload: {"temperatura":22.45,"pressao":999.61,"umidade":72.50,"timestamp":1792879897}
+[24/10/2026 19:11:42] Dados enviados via MQTT | Epoch: 1792879902 | Payload: {"temperatura":22.45,"pressao":999.62,"umidade":72.50,"timestamp":1792879902}
+[24/10/2026 19:11:47] Dados enviados via MQTT | Epoch: 1792879907 | Payload: {"temperatura":22.45,"pressao":999.61,"umidade":72.47,"timestamp":1792879907}
+[24/10/2026 19:11:52] Dados enviados via MQTT | Epoch: 1792879912 | Payload: {"temperatura":22.46,"pressao":999.63,"umidade":72.46,"timestamp":1792879912}
+[24/10/2026 19:11:57] Dados enviados via MQTT | Epoch: 1792879917 | Payload: {"temperatura":22.47,"pressao":999.62,"umidade":72.44,"timestamp":1792879917}
+[24/10/2026 19:12:02] Dados enviados via MQTT | Epoch: 1792879922 | Payload: {"temperatura":22.46,"pressao":999.60,"umidade":72.51,"timestamp":1792879922}
+[24/10/2026 19:12:07] Dados enviados via MQTT | Epoch: 1792879927 | Payload: {"temperatura":22.47,"pressao":999.58,"umidade":72.44,"timestamp":1792879927}
+[24/10/2026 19:12:12] Dados enviados via MQTT | Epoch: 1792879932 | Payload: {"temperatura":22.47,"pressao":999.61,"umidade":72.49,"timestamp":1792879932}
+[24/10/2026 19:12:17] Dados enviados via MQTT | Epoch: 1792879937 | Payload: {"temperatura":22.47,"pressao":999.65,"umidade":72.47,"timestamp":1792879937}
+[24/10/2026 19:12:22] Dados enviados via MQTT | Epoch: 1792879942 | Payload: {"temperatura":22.46,"pressao":999.59,"umidade":72.53,"timestamp":1792879942}
+[24/10/2026 19:12:27] Dados enviados via MQTT | Epoch: 1792879947 | Payload: {"temperatura":22.46,"pressao":999.63,"umidade":72.50,"timestamp":1792879947}
+[24/10/2026 19:12:32] Dados enviados via MQTT | Epoch: 1792879952 | Payload: {"temperatura":22.46,"pressao":999.59,"umidade":72.50,"timestamp":1792879952}
+[24/10/2026 19:12:37] Dados enviados via MQTT | Epoch: 1792879957 | Payload: {"temperatura":22.46,"pressao":999.61,"umidade":72.53,"timestamp":1792879957}
+[24/10/2026 19:12:42] Dados enviados via MQTT | Epoch: 1792879962 | Payload: {"temperatura":22.46,"pressao":999.63,"umidade":72.47,"timestamp":1792879962}
+[24/10/2026 19:12:47] Dados enviados via MQTT | Epoch: 1792879967 | Payload: {"temperatura":22.46,"pressao":999.64,"umidade":72.52,"timestamp":1792879967}
+[24/10/2026 19:12:52] Dados enviados via MQTT | Epoch: 1792879972 | Payload: {"temperatura":22.47,"pressao":999.63,"umidade":72.37,"timestamp":1792879972}
+[24/10/2026 19:12:57] Dados enviados via MQTT | Epoch: 1792879977 | Payload: {"temperatura":22.47,"pressao":999.64,"umidade":72.53,"timestamp":1792879977}
+[24/10/2026 19:13:02] Dados enviados via MQTT | Epoch: 1792879982 | Payload: {"temperatura":22.46,"pressao":999.60,"umidade":72.54,"timestamp":1792879982}
+[24/10/2026 19:13:07] Dados enviados via MQTT | Epoch: 1792879987 | Payload: {"temperatura":22.46,"pressao":999.65,"umidade":72.58,"timestamp":1792879987}
+[24/10/2026 19:13:12] Dados enviados via MQTT | Epoch: 1792879992 | Payload: {"temperatura":22.46,"pressao":999.62,"umidade":72.58,"timestamp":1792879992}
+[24/10/2026 19:13:17] Dados enviados via MQTT | Epoch: 1792879997 | Payload: {"temperatura":22.47,"pressao":999.59,"umidade":72.55,"timestamp":1792879997}
+[24/10/2026 19:13:22] Dados enviados via MQTT | Epoch: 1792880002 | Payload: {"temperatura":22.46,"pressao":999.59,"umidade":72.54,"timestamp":1792880002}
+[24/10/2026 19:13:27] Dados enviados via MQTT | Epoch: 1792880007 | Payload: {"temperatura":22.47,"pressao":999.64,"umidade":72.56,"timestamp":1792880007}
+[24/10/2026 19:13:32] Dados enviados via MQTT | Epoch: 1792880012 | Payload: {"temperatura":22.47,"pressao":999.63,"umidade":72.56,"timestamp":1792880012}
+[24/10/2026 19:13:37] Dados enviados via MQTT | Epoch: 1792880017 | Payload: {"temperatura":22.47,"pressao":999.63,"umidade":72.60,"timestamp":1792880017}
+[24/10/2026 19:13:42] Dados enviados via MQTT | Epoch: 1792880022 | Payload: {"temperatura":22.48,"pressao":999.64,"umidade":72.60,"timestamp":1792880022}
+[24/10/2026 19:13:47] Dados enviados via MQTT | Epoch: 1792880027 | Payload: {"temperatura":22.48,"pressao":999.63,"umidade":72.57,"timestamp":1792880027}
+[24/10/2026 19:13:52] Dados enviados via MQTT | Epoch: 1792880032 | Payload: {"temperatura":22.48,"pressao":999.64,"umidade":72.55,"timestamp":1792880032}
+[24/10/2026 19:13:57] Dados enviados via MQTT | Epoch: 1792880037 | Payload: {"temperatura":22.48,"pressao":999.64,"umidade":72.59,"timestamp":1792880037}
+[24/10/2026 19:14:02] Dados enviados via MQTT | Epoch: 1792880042 | Payload: {"temperatura":22.48,"pressao":999.61,"umidade":72.57,"timestamp":1792880042}
+[24/10/2026 19:14:07] Dados enviados via MQTT | Epoch: 1792880047 | Payload: {"temperatura":22.49,"pressao":999.65,"umidade":72.55,"timestamp":1792880047}
+[24/10/2026 19:14:12] Dados enviados via MQTT | Epoch: 1792880052 | Payload: {"temperatura":22.50,"pressao":999.66,"umidade":72.56,"timestamp":1792880052}
+[24/10/2026 19:14:17] Dados enviados via MQTT | Epoch: 1792880057 | Payload: {"temperatura":22.49,"pressao":999.62,"umidade":72.51,"timestamp":1792880057}
+[24/10/2026 19:14:22] Dados enviados via MQTT | Epoch: 1792880062 | Payload: {"temperatura":22.49,"pressao":999.66,"umidade":72.54,"timestamp":1792880062}
+[24/10/2026 19:14:27] Dados enviados via MQTT | Epoch: 1792880067 | Payload: {"temperatura":22.48,"pressao":999.62,"umidade":72.55,"timestamp":1792880067}
+[24/10/2026 19:14:32] Dados enviados via MQTT | Epoch: 1792880072 | Payload: {"temperatura":22.49,"pressao":999.62,"umidade":72.57,"timestamp":1792880072}
+[24/10/2026 19:14:37] Dados enviados via MQTT | Epoch: 1792880077 | Payload: {"temperatura":22.48,"pressao":999.64,"umidade":72.58,"timestamp":1792880077}
+[24/10/2026 19:14:42] Dados enviados via MQTT | Epoch: 1792880082 | Payload: {"temperatura":22.49,"pressao":999.64,"umidade":72.62,"timestamp":1792880082}
+[24/10/2026 19:14:47] Dados enviados via MQTT | Epoch: 1792880087 | Payload: {"temperatura":22.49,"pressao":999.67,"umidade":72.61,"timestamp":1792880087}
+[24/10/2026 19:14:52] Dados enviados via MQTT | Epoch: 1792880092 | Payload: {"temperatura":22.49,"pressao":999.65,"umidade":72.54,"timestamp":1792880092}
+[24/10/2026 19:14:57] Dados enviados via MQTT | Epoch: 1792880097 | Payload: {"temperatura":22.49,"pressao":999.63,"umidade":72.64,"timestamp":1792880097}
+[24/10/2026 19:15:02] Dados enviados via MQTT | Epoch: 1792880102 | Payload: {"temperatura":22.49,"pressao":999.67,"umidade":72.64,"timestamp":1792880102}
+[24/10/2026 19:15:04] ALERTA: Wi-Fi caiu!
+[24/10/2026 19:15:04] ALERTA: conexao MQTT caiu! (estado=-3)
+[24/10/2026 19:15:12] Conectando em: Rede_Local
+E (1400162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:15:17] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:15:22] Conectando em: Rede_Local
+E (1410162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:15:27] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:15:30] Wi-Fi restabelecido apos 26 s fora do ar.
+[24/10/2026 19:15:32] Tentando conexão MQTT...
+[24/10/2026 19:15:32] Conectado ao Broker MQTT!
+[24/10/2026 19:15:32] Dados enviados via MQTT | Epoch: 1792880132 | Payload: {"temperatura":22.49,"pressao":999.67,"umidade":72.63,"timestamp":1792880132}
+[24/10/2026 19:15:32] MQTT restabelecido apos 28 s fora do ar.
+[24/10/2026 19:15:37] Dados enviados via MQTT | Epoch: 1792880137 | Payload: {"temperatura":22.49,"pressao":999.67,"umidade":72.69,"timestamp":1792880137}
+[24/10/2026 19:15:42] Dados enviados via MQTT | Epoch: 1792880142 | Payload: {"temperatura":22.49,"pressao":999.64,"umidade":72.69,"timestamp":1792880142}
+[24/10/2026 19:15:47] Dados enviados via MQTT | Epoch: 1792880147 | Payload: {"temperatura":22.48,"pressao":999.69,"umidade":72.66,"timestamp":1792880147}
+[24/10/2026 19:15:52] Dados enviados via MQTT | Epoch: 1792880152 | Payload: {"temperatura":22.48,"pressao":999.70,"umidade":72.70,"timestamp":1792880152}
+[24/10/2026 19:15:57] Dados enviados via MQTT | Epoch: 1792880157 | Payload: {"temperatura":22.48,"pressao":999.69,"umidade":72.67,"timestamp":1792880157}
+[24/10/2026 19:16:02] Dados enviados via MQTT | Epoch: 1792880162 | Payload: {"temperatura":22.48,"pressao":999.70,"umidade":72.73,"timestamp":1792880162}
+[24/10/2026 19:16:07] Dados enviados via MQTT | Epoch: 1792880167 | Payload: {"temperatura":22.49,"pressao":999.72,"umidade":72.75,"timestamp":1792880167}
+[24/10/2026 19:16:12] Dados enviados via MQTT | Epoch: 1792880172 | Payload: {"temperatura":22.48,"pressao":999.71,"umidade":72.78,"timestamp":1792880172}
+[24/10/2026 19:16:17] Dados enviados via MQTT | Epoch: 1792880177 | Payload: {"temperatura":22.48,"pressao":999.70,"umidade":72.77,"timestamp":1792880177}
+[24/10/2026 19:16:22] Dados enviados via MQTT | Epoch: 1792880182 | Payload: {"temperatura":22.49,"pressao":999.73,"umidade":72.73,"timestamp":1792880182}
+[24/10/2026 19:16:27] Dados enviados via MQTT | Epoch: 1792880187 | Payload: {"temperatura":22.49,"pressao":999.73,"umidade":72.77,"timestamp":1792880187}
+[24/10/2026 19:16:32] Dados enviados via MQTT | Epoch: 1792880192 | Payload: {"temperatura":22.49,"pressao":999.73,"umidade":72.72,"timestamp":1792880192}
+[24/10/2026 19:16:37] Dados enviados via MQTT | Epoch: 1792880197 | Payload: {"temperatura":22.49,"pressao":999.73,"umidade":72.71,"timestamp":1792880197}
+[24/10/2026 19:16:42] Dados enviados via MQTT | Epoch: 1792880202 | Payload: {"temperatura":22.49,"pressao":999.77,"umidade":72.67,"timestamp":1792880202}
+[24/10/2026 19:16:47] Dados enviados via MQTT | Epoch: 1792880207 | Payload: {"temperatura":22.50,"pressao":999.75,"umidade":72.65,"timestamp":1792880207}
+[24/10/2026 19:16:52] Dados enviados via MQTT | Epoch: 1792880212 | Payload: {"temperatura":22.49,"pressao":999.77,"umidade":72.62,"timestamp":1792880212}
+[24/10/2026 19:16:57] Dados enviados via MQTT | Epoch: 1792880217 | Payload: {"temperatura":22.50,"pressao":999.76,"umidade":72.68,"timestamp":1792880217}
+[24/10/2026 19:17:02] Dados enviados via MQTT | Epoch: 1792880222 | Payload: {"temperatura":22.50,"pressao":999.76,"umidade":72.70,"timestamp":1792880222}
+[24/10/2026 19:17:07] Dados enviados via MQTT | Epoch: 1792880227 | Payload: {"temperatura":22.50,"pressao":999.78,"umidade":72.63,"timestamp":1792880227}
+[24/10/2026 19:17:12] Dados enviados via MQTT | Epoch: 1792880232 | Payload: {"temperatura":22.50,"pressao":999.79,"umidade":72.67,"timestamp":1792880232}
+[24/10/2026 19:17:17] Dados enviados via MQTT | Epoch: 1792880237 | Payload: {"temperatura":22.49,"pressao":999.79,"umidade":72.63,"timestamp":1792880237}
+[24/10/2026 19:17:22] Dados enviados via MQTT | Epoch: 1792880242 | Payload: {"temperatura":22.49,"pressao":999.85,"umidade":72.73,"timestamp":1792880242}
+[24/10/2026 19:17:27] Dados enviados via MQTT | Epoch: 1792880247 | Payload: {"temperatura":22.49,"pressao":999.79,"umidade":72.76,"timestamp":1792880247}
+[24/10/2026 19:17:32] Dados enviados via MQTT | Epoch: 1792880252 | Payload: {"temperatura":22.49,"pressao":999.80,"umidade":72.76,"timestamp":1792880252}
+[24/10/2026 19:17:37] Dados enviados via MQTT | Epoch: 1792880257 | Payload: {"temperatura":22.49,"pressao":999.81,"umidade":72.77,"timestamp":1792880257}
+[24/10/2026 19:17:42] Dados enviados via MQTT | Epoch: 1792880262 | Payload: {"temperatura":22.49,"pressao":999.81,"umidade":72.77,"timestamp":1792880262}
+[24/10/2026 19:17:47] Dados enviados via MQTT | Epoch: 1792880267 | Payload: {"temperatura":22.49,"pressao":999.78,"umidade":72.78,"timestamp":1792880267}
+[24/10/2026 19:17:52] Dados enviados via MQTT | Epoch: 1792880272 | Payload: {"temperatura":22.50,"pressao":999.82,"umidade":72.76,"timestamp":1792880272}
+[24/10/2026 19:17:57] Dados enviados via MQTT | Epoch: 1792880277 | Payload: {"temperatura":22.49,"pressao":999.82,"umidade":72.73,"timestamp":1792880277}
+[24/10/2026 19:18:02] Dados enviados via MQTT | Epoch: 1792880282 | Payload: {"temperatura":22.49,"pressao":999.79,"umidade":72.66,"timestamp":1792880282}
+[24/10/2026 19:18:07] Dados enviados via MQTT | Epoch: 1792880287 | Payload: {"temperatura":22.50,"pressao":999.83,"umidade":72.78,"timestamp":1792880287}
+[24/10/2026 19:18:12] Dados enviados via MQTT | Epoch: 1792880292 | Payload: {"temperatura":22.51,"pressao":999.81,"umidade":72.75,"timestamp":1792880292}
+[24/10/2026 19:18:17] Dados enviados via MQTT | Epoch: 1792880297 | Payload: {"temperatura":22.50,"pressao":999.85,"umidade":72.71,"timestamp":1792880297}
+[24/10/2026 19:18:22] Dados enviados via MQTT | Epoch: 1792880302 | Payload: {"temperatura":22.49,"pressao":999.83,"umidade":72.75,"timestamp":1792880302}
+[24/10/2026 19:18:27] Dados enviados via MQTT | Epoch: 1792880307 | Payload: {"temperatura":22.50,"pressao":999.82,"umidade":72.70,"timestamp":1792880307}
+[24/10/2026 19:18:32] Dados enviados via MQTT | Epoch: 1792880312 | Payload: {"temperatura":22.51,"pressao":999.81,"umidade":72.69,"timestamp":1792880312}
+[24/10/2026 19:18:37] Dados enviados via MQTT | Epoch: 1792880317 | Payload: {"temperatura":22.51,"pressao":999.84,"umidade":72.72,"timestamp":1792880317}
+[24/10/2026 19:18:42] Dados enviados via MQTT | Epoch: 1792880322 | Payload: {"temperatura":22.52,"pressao":999.84,"umidade":72.68,"timestamp":1792880322}
+[24/10/2026 19:18:47] Dados enviados via MQTT | Epoch: 1792880327 | Payload: {"temperatura":22.52,"pressao":999.83,"umidade":72.69,"timestamp":1792880327}
+[24/10/2026 19:18:52] Dados enviados via MQTT | Epoch: 1792880332 | Payload: {"temperatura":22.51,"pressao":999.83,"umidade":72.69,"timestamp":1792880332}
+[24/10/2026 19:18:57] Dados enviados via MQTT | Epoch: 1792880337 | Payload: {"temperatura":22.51,"pressao":999.81,"umidade":72.65,"timestamp":1792880337}
+[24/10/2026 19:19:02] Dados enviados via MQTT | Epoch: 1792880342 | Payload: {"temperatura":22.51,"pressao":999.82,"umidade":72.71,"timestamp":1792880342}
+[24/10/2026 19:19:07] Dados enviados via MQTT | Epoch: 1792880347 | Payload: {"temperatura":22.50,"pressao":999.82,"umidade":72.71,"timestamp":1792880347}
+[24/10/2026 19:19:12] Dados enviados via MQTT | Epoch: 1792880352 | Payload: {"temperatura":22.51,"pressao":999.81,"umidade":72.75,"timestamp":1792880352}
+[24/10/2026 19:19:17] Dados enviados via MQTT | Epoch: 1792880357 | Payload: {"temperatura":22.51,"pressao":999.84,"umidade":72.69,"timestamp":1792880357}
+[24/10/2026 19:19:22] Dados enviados via MQTT | Epoch: 1792880362 | Payload: {"temperatura":22.51,"pressao":999.79,"umidade":72.70,"timestamp":1792880362}
+[24/10/2026 19:19:27] Dados enviados via MQTT | Epoch: 1792880367 | Payload: {"temperatura":22.51,"pressao":999.76,"umidade":72.71,"timestamp":1792880367}
+[24/10/2026 19:19:29] ALERTA: Wi-Fi caiu!
+[24/10/2026 19:19:29] ALERTA: conexao MQTT caiu! (estado=-3)
+[24/10/2026 19:19:32] Conectando em: Rede_Local
+E (1660162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:19:37] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:19:42] Conectando em: Rede_Local
+E (1670162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:19:47] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:19:52] Conectando em: Rede_Local
+[24/10/2026 19:19:57] Wi-Fi conectado! IP: 192.168.137.24
+[24/10/2026 19:19:57] Wi-Fi restabelecido apos 28 s fora do ar.
+[24/10/2026 19:20:02] Tentando conexão MQTT...
+[24/10/2026 19:20:02] Conectado ao Broker MQTT!
+[24/10/2026 19:20:02] Dados enviados via MQTT | Epoch: 1792880402 | Payload: {"temperatura":22.52,"pressao":999.79,"umidade":72.80,"timestamp":1792880402}
+[24/10/2026 19:20:02] MQTT restabelecido apos 33 s fora do ar.
+[24/10/2026 19:20:07] Dados enviados via MQTT | Epoch: 1792880407 | Payload: {"temperatura":22.52,"pressao":999.80,"umidade":72.76,"timestamp":1792880407}
+[24/10/2026 19:20:12] Dados enviados via MQTT | Epoch: 1792880412 | Payload: {"temperatura":22.53,"pressao":999.75,"umidade":72.77,"timestamp":1792880412}
+[24/10/2026 19:20:17] Dados enviados via MQTT | Epoch: 1792880417 | Payload: {"temperatura":22.53,"pressao":999.77,"umidade":72.75,"timestamp":1792880417}
+[24/10/2026 19:20:22] Dados enviados via MQTT | Epoch: 1792880422 | Payload: {"temperatura":22.53,"pressao":999.76,"umidade":72.79,"timestamp":1792880422}
+[24/10/2026 19:20:27] Dados enviados via MQTT | Epoch: 1792880427 | Payload: {"temperatura":22.53,"pressao":999.78,"umidade":72.78,"timestamp":1792880427}
+[24/10/2026 19:20:32] Dados enviados via MQTT | Epoch: 1792880432 | Payload: {"temperatura":22.53,"pressao":999.79,"umidade":72.76,"timestamp":1792880432}
+[24/10/2026 19:20:37] Dados enviados via MQTT | Epoch: 1792880437 | Payload: {"temperatura":22.54,"pressao":999.78,"umidade":72.81,"timestamp":1792880437}
+[24/10/2026 19:20:42] Dados enviados via MQTT | Epoch: 1792880442 | Payload: {"temperatura":22.54,"pressao":999.80,"umidade":72.74,"timestamp":1792880442}
+[24/10/2026 19:20:47] Dados enviados via MQTT | Epoch: 1792880447 | Payload: {"temperatura":22.55,"pressao":999.80,"umidade":72.77,"timestamp":1792880447}
+[24/10/2026 19:20:52] Dados enviados via MQTT | Epoch: 1792880452 | Payload: {"temperatura":22.54,"pressao":999.79,"umidade":72.70,"timestamp":1792880452}
+[24/10/2026 19:20:57] Dados enviados via MQTT | Epoch: 1792880457 | Payload: {"temperatura":22.54,"pressao":999.76,"umidade":72.74,"timestamp":1792880457}
+[24/10/2026 19:21:02] Dados enviados via MQTT | Epoch: 1792880462 | Payload: {"temperatura":22.55,"pressao":999.81,"umidade":72.75,"timestamp":1792880462}
+[24/10/2026 19:21:07] Dados enviados via MQTT | Epoch: 1792880467 | Payload: {"temperatura":22.55,"pressao":999.76,"umidade":72.73,"timestamp":1792880467}
+[24/10/2026 19:21:12] Dados enviados via MQTT | Epoch: 1792880472 | Payload: {"temperatura":22.55,"pressao":999.77,"umidade":72.72,"timestamp":1792880472}
+[24/10/2026 19:21:17] Dados enviados via MQTT | Epoch: 1792880477 | Payload: {"temperatura":22.55,"pressao":999.76,"umidade":72.78,"timestamp":1792880477}
+[24/10/2026 19:21:22] Dados enviados via MQTT | Epoch: 1792880482 | Payload: {"temperatura":22.55,"pressao":999.78,"umidade":72.75,"timestamp":1792880482}
+[24/10/2026 19:21:27] Dados enviados via MQTT | Epoch: 1792880487 | Payload: {"temperatura":22.53,"pressao":999.75,"umidade":72.72,"timestamp":1792880487}
+[24/10/2026 19:21:32] Dados enviados via MQTT | Epoch: 1792880492 | Payload: {"temperatura":22.54,"pressao":999.75,"umidade":72.73,"timestamp":1792880492}
+[24/10/2026 19:21:37] Dados enviados via MQTT | Epoch: 1792880497 | Payload: {"temperatura":22.54,"pressao":999.78,"umidade":72.75,"timestamp":1792880497}
+[24/10/2026 19:21:42] Dados enviados via MQTT | Epoch: 1792880502 | Payload: {"temperatura":22.55,"pressao":999.77,"umidade":72.77,"timestamp":1792880502}
+[24/10/2026 19:21:47] Dados enviados via MQTT | Epoch: 1792880507 | Payload: {"temperatura":22.55,"pressao":999.77,"umidade":72.77,"timestamp":1792880507}
+[24/10/2026 19:21:52] Dados enviados via MQTT | Epoch: 1792880512 | Payload: {"temperatura":22.54,"pressao":999.76,"umidade":72.78,"timestamp":1792880512}
+[24/10/2026 19:21:57] Dados enviados via MQTT | Epoch: 1792880517 | Payload: {"temperatura":22.54,"pressao":999.77,"umidade":72.78,"timestamp":1792880517}
+[24/10/2026 19:22:02] Dados enviados via MQTT | Epoch: 1792880522 | Payload: {"temperatura":22.56,"pressao":999.80,"umidade":72.78,"timestamp":1792880522}
+[24/10/2026 19:22:07] Dados enviados via MQTT | Epoch: 1792880527 | Payload: {"temperatura":22.55,"pressao":999.78,"umidade":72.74,"timestamp":1792880527}
+[24/10/2026 19:22:12] Dados enviados via MQTT | Epoch: 1792880532 | Payload: {"temperatura":22.55,"pressao":999.78,"umidade":72.73,"timestamp":1792880532}
+[24/10/2026 19:22:17] Dados enviados via MQTT | Epoch: 1792880537 | Payload: {"temperatura":22.55,"pressao":999.79,"umidade":72.73,"timestamp":1792880537}
+[24/10/2026 19:22:22] Dados enviados via MQTT | Epoch: 1792880542 | Payload: {"temperatura":22.54,"pressao":999.78,"umidade":72.76,"timestamp":1792880542}
+[24/10/2026 19:22:27] Dados enviados via MQTT | Epoch: 1792880547 | Payload: {"temperatura":22.55,"pressao":999.76,"umidade":72.79,"timestamp":1792880547}
+[24/10/2026 19:22:32] Dados enviados via MQTT | Epoch: 1792880552 | Payload: {"temperatura":22.54,"pressao":999.75,"umidade":72.80,"timestamp":1792880552}
+[24/10/2026 19:22:37] Dados enviados via MQTT | Epoch: 1792880557 | Payload: {"temperatura":22.55,"pressao":999.79,"umidade":72.78,"timestamp":1792880557}
+[24/10/2026 19:22:42] Dados enviados via MQTT | Epoch: 1792880562 | Payload: {"temperatura":22.53,"pressao":999.79,"umidade":72.73,"timestamp":1792880562}
+[24/10/2026 19:22:47] Dados enviados via MQTT | Epoch: 1792880567 | Payload: {"temperatura":22.54,"pressao":999.81,"umidade":72.79,"timestamp":1792880567}
+[24/10/2026 19:22:52] Dados enviados via MQTT | Epoch: 1792880572 | Payload: {"temperatura":22.54,"pressao":999.78,"umidade":72.75,"timestamp":1792880572}
+[24/10/2026 19:22:57] Dados enviados via MQTT | Epoch: 1792880577 | Payload: {"temperatura":22.54,"pressao":999.75,"umidade":72.77,"timestamp":1792880577}
+[24/10/2026 19:23:02] Dados enviados via MQTT | Epoch: 1792880582 | Payload: {"temperatura":22.53,"pressao":999.80,"umidade":72.72,"timestamp":1792880582}
+[24/10/2026 19:23:07] Dados enviados via MQTT | Epoch: 1792880587 | Payload: {"temperatura":22.53,"pressao":999.81,"umidade":72.82,"timestamp":1792880587}
+[24/10/2026 19:23:12] Dados enviados via MQTT | Epoch: 1792880592 | Payload: {"temperatura":22.54,"pressao":999.79,"umidade":72.75,"timestamp":1792880592}
+[24/10/2026 19:23:17] Dados enviados via MQTT | Epoch: 1792880597 | Payload: {"temperatura":22.53,"pressao":999.78,"umidade":72.66,"timestamp":1792880597}
+[24/10/2026 19:23:22] Dados enviados via MQTT | Epoch: 1792880602 | Payload: {"temperatura":22.53,"pressao":999.83,"umidade":72.74,"timestamp":1792880602}
+[24/10/2026 19:23:27] Dados enviados via MQTT | Epoch: 1792880607 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":72.75,"timestamp":1792880607}
+[24/10/2026 19:23:32] Dados enviados via MQTT | Epoch: 1792880612 | Payload: {"temperatura":22.52,"pressao":999.82,"umidade":72.80,"timestamp":1792880612}
+[24/10/2026 19:23:37] Dados enviados via MQTT | Epoch: 1792880617 | Payload: {"temperatura":22.53,"pressao":999.81,"umidade":72.81,"timestamp":1792880617}
+[24/10/2026 19:23:42] Dados enviados via MQTT | Epoch: 1792880622 | Payload: {"temperatura":22.52,"pressao":999.84,"umidade":72.80,"timestamp":1792880622}
+[24/10/2026 19:23:47] Dados enviados via MQTT | Epoch: 1792880627 | Payload: {"temperatura":22.52,"pressao":999.80,"umidade":72.84,"timestamp":1792880627}
+[24/10/2026 19:23:52] Dados enviados via MQTT | Epoch: 1792880632 | Payload: {"temperatura":22.54,"pressao":999.80,"umidade":72.87,"timestamp":1792880632}
+[24/10/2026 19:23:57] Dados enviados via MQTT | Epoch: 1792880637 | Payload: {"temperatura":22.53,"pressao":999.81,"umidade":72.76,"timestamp":1792880637}
+[24/10/2026 19:24:02] Dados enviados via MQTT | Epoch: 1792880642 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":72.79,"timestamp":1792880642}
+[24/10/2026 19:24:07] Dados enviados via MQTT | Epoch: 1792880647 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":72.80,"timestamp":1792880647}
+[24/10/2026 19:24:12] Dados enviados via MQTT | Epoch: 1792880652 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":72.82,"timestamp":1792880652}
+[24/10/2026 19:24:17] Dados enviados via MQTT | Epoch: 1792880657 | Payload: {"temperatura":22.53,"pressao":999.85,"umidade":72.82,"timestamp":1792880657}
+[24/10/2026 19:24:22] Dados enviados via MQTT | Epoch: 1792880662 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":72.86,"timestamp":1792880662}
+[24/10/2026 19:24:27] Dados enviados via MQTT | Epoch: 1792880667 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":72.86,"timestamp":1792880667}
+[24/10/2026 19:24:32] Dados enviados via MQTT | Epoch: 1792880672 | Payload: {"temperatura":22.53,"pressao":999.85,"umidade":72.82,"timestamp":1792880672}
+[24/10/2026 19:24:37] Dados enviados via MQTT | Epoch: 1792880677 | Payload: {"temperatura":22.52,"pressao":999.81,"umidade":72.80,"timestamp":1792880677}
+[24/10/2026 19:24:42] Dados enviados via MQTT | Epoch: 1792880682 | Payload: {"temperatura":22.52,"pressao":999.86,"umidade":72.82,"timestamp":1792880682}
+[24/10/2026 19:24:47] Dados enviados via MQTT | Epoch: 1792880687 | Payload: {"temperatura":22.53,"pressao":999.83,"umidade":72.88,"timestamp":1792880687}
+[24/10/2026 19:24:52] Dados enviados via MQTT | Epoch: 1792880692 | Payload: {"temperatura":22.52,"pressao":999.84,"umidade":72.77,"timestamp":1792880692}
+[24/10/2026 19:24:57] Dados enviados via MQTT | Epoch: 1792880697 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":72.88,"timestamp":1792880697}
+[24/10/2026 19:25:02] Dados enviados via MQTT | Epoch: 1792880702 | Payload: {"temperatura":22.53,"pressao":999.81,"umidade":72.86,"timestamp":1792880702}
+[24/10/2026 19:25:07] Dados enviados via MQTT | Epoch: 1792880707 | Payload: {"temperatura":22.52,"pressao":999.84,"umidade":72.80,"timestamp":1792880707}
+[24/10/2026 19:25:09] ALERTA: Wi-Fi caiu!
+[24/10/2026 19:25:09] ALERTA: conexao MQTT caiu! (estado=-3)
+[24/10/2026 19:25:12] Conectando em: Rede_Local
+E (2000162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:25:17] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:25:22] Conectando em: Rede_Local
+E (2010162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:25:27] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:25:32] Conectando em: Rede_Local
+E (2020162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:25:37] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:25:42] Conectando em: Rede_Local
+E (2030162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:25:47] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:25:52] Conectando em: Rede_Local
+E (2040162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:25:57] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:26:02] Conectando em: Rede_Local
+E (2050162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:26:07] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:26:12] Conectando em: Rede_Local
+E (2060162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:26:17] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:26:22] Conectando em: Rede_Local
+E (2070162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:26:27] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:26:32] Conectando em: Rede_Local
+E (2080162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:26:37] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:26:42] Conectando em: Rede_Local
+E (2090162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:26:47] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:26:52] Conectando em: Rede_Local
+E (2100162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:26:57] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:27:02] Conectando em: Rede_Local
+E (2110162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:27:07] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:27:12] Conectando em: Rede_Local
+E (2120162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:27:17] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:27:22] Conectando em: Rede_Local
+E (2130162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:27:27] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:27:32] Conectando em: Rede_Local
+E (2140162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:27:37] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:27:42] Conectando em: Rede_Local
+E (2150162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:27:47] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:27:52] Conectando em: Rede_Local
+E (2160162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:27:57] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:28:02] Conectando em: Rede_Local
+E (2170162) wifi:sta is connecting, cannot set config
+[24/10/2026 19:28:07] Falha ao conectar no Wi-Fi. Nova tentativa em 10 s.
+[24/10/2026 19:28:07] Wi-Fi restabelecido apos 178 s fora do ar.
+[24/10/2026 19:28:12] Tentando conexão MQTT...
+[24/10/2026 19:28:12] Conectado ao Broker MQTT!
+[24/10/2026 19:28:12] MQTT restabelecido apos 183 s fora do ar.
+[24/10/2026 19:28:17] Dados enviados via MQTT | Epoch: 1792880897 | Payload: {"temperatura":22.52,"pressao":999.89,"umidade":73.02,"timestamp":1792880897}
+[24/10/2026 19:28:22] Dados enviados via MQTT | Epoch: 1792880902 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":73.00,"timestamp":1792880902}
+[24/10/2026 19:28:27] Dados enviados via MQTT | Epoch: 1792880907 | Payload: {"temperatura":22.52,"pressao":999.85,"umidade":73.02,"timestamp":1792880907}
+[24/10/2026 19:28:32] Dados enviados via MQTT | Epoch: 1792880912 | Payload: {"temperatura":22.52,"pressao":999.84,"umidade":73.02,"timestamp":1792880912}
+[24/10/2026 19:28:37] Dados enviados via MQTT | Epoch: 1792880917 | Payload: {"temperatura":22.53,"pressao":999.86,"umidade":73.03,"timestamp":1792880917}
+[24/10/2026 19:28:42] Dados enviados via MQTT | Epoch: 1792880922 | Payload: {"temperatura":22.52,"pressao":999.81,"umidade":73.04,"timestamp":1792880922}
+[24/10/2026 19:28:47] Dados enviados via MQTT | Epoch: 1792880927 | Payload: {"temperatura":22.53,"pressao":999.88,"umidade":73.03,"timestamp":1792880927}
+[24/10/2026 19:28:52] Dados enviados via MQTT | Epoch: 1792880932 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":73.01,"timestamp":1792880932}
+[24/10/2026 19:28:57] Dados enviados via MQTT | Epoch: 1792880937 | Payload: {"temperatura":22.52,"pressao":999.86,"umidade":73.00,"timestamp":1792880937}
+[24/10/2026 19:29:02] Dados enviados via MQTT | Epoch: 1792880942 | Payload: {"temperatura":22.53,"pressao":999.89,"umidade":73.00,"timestamp":1792880942}
+[24/10/2026 19:29:07] Dados enviados via MQTT | Epoch: 1792880947 | Payload: {"temperatura":22.54,"pressao":999.86,"umidade":73.02,"timestamp":1792880947}
+[24/10/2026 19:29:12] Dados enviados via MQTT | Epoch: 1792880952 | Payload: {"temperatura":22.53,"pressao":999.87,"umidade":73.04,"timestamp":1792880952}
+[24/10/2026 19:29:17] Dados enviados via MQTT | Epoch: 1792880957 | Payload: {"temperatura":22.53,"pressao":999.85,"umidade":73.02,"timestamp":1792880957}
+[24/10/2026 19:29:22] Dados enviados via MQTT | Epoch: 1792880962 | Payload: {"temperatura":22.53,"pressao":999.84,"umidade":73.04,"timestamp":1792880962}
+[24/10/2026 19:29:27] Dados enviados via MQTT | Epoch: 1792880967 | Payload: {"temperatura":22.54,"pressao":999.89,"umidade":73.03,"timestamp":1792880967}
+[24/10/2026 19:29:32] Dados enviados via MQTT | Epoch: 1792880972 | Payload: {"temperatura":22.52,"pressao":999.86,"umidade":73.01,"timestamp":1792880972}
+[24/10/2026 19:29:37] Dados enviados via MQTT | Epoch: 1792880977 | Payload: {"temperatura":22.52,"pressao":999.89,"umidade":73.04,"timestamp":1792880977}
+[24/10/2026 19:29:42] Dados enviados via MQTT | Epoch: 1792880982 | Payload: {"temperatura":22.54,"pressao":999.90,"umidade":73.10,"timestamp":1792880982}
+[24/10/2026 19:29:47] Dados enviados via MQTT | Epoch: 1792880987 | Payload: {"temperatura":22.53,"pressao":999.89,"umidade":73.05,"timestamp":1792880987}
+[24/10/2026 19:29:52] Dados enviados via MQTT | Epoch: 1792880992 | Payload: {"temperatura":22.52,"pressao":999.85,"umidade":73.03,"timestamp":1792880992}
+[24/10/2026 19:29:57] Dados enviados via MQTT | Epoch: 1792880997 | Payload: {"temperatura":22.52,"pressao":999.89,"umidade":73.08,"timestamp":1792880997}
+[24/10/2026 19:30:02] Dados enviados via MQTT | Epoch: 1792881002 | Payload: {"temperatura":22.53,"pressao":999.86,"umidade":73.09,"timestamp":1792881002}
+[24/10/2026 19:30:07] Dados enviados via MQTT | Epoch: 1792881007 | Payload: {"temperatura":22.53,"pressao":999.85,"umidade":73.04,"timestamp":1792881007}
+[24/10/2026 19:30:12] Dados enviados via MQTT | Epoch: 1792881012 | Payload: {"temperatura":22.55,"pressao":999.83,"umidade":73.04,"timestamp":1792881012}
+[24/10/2026 19:30:17] Dados enviados via MQTT | Epoch: 1792881017 | Payload: {"temperatura":22.54,"pressao":999.83,"umidade":73.09,"timestamp":1792881017}
+[24/10/2026 19:30:22] Dados enviados via MQTT | Epoch: 1792881022 | Payload: {"temperatura":22.53,"pressao":999.85,"umidade":73.11,"timestamp":1792881022}
+[24/10/2026 19:30:27] Dados enviados via MQTT | Epoch: 1792881027 | Payload: {"temperatura":22.55,"pressao":999.88,"umidade":73.09,"timestamp":1792881027}
+[24/10/2026 19:30:32] Dados enviados via MQTT | Epoch: 1792881032 | Payload: {"temperatura":22.54,"pressao":999.86,"umidade":73.06,"timestamp":1792881032}
+[24/10/2026 19:30:37] Dados enviados via MQTT | Epoch: 1792881037 | Payload: {"temperatura":22.54,"pressao":999.85,"umidade":73.08,"timestamp":1792881037}
+[24/10/2026 19:30:42] Dados enviados via MQTT | Epoch: 1792881042 | Payload: {"temperatura":22.54,"pressao":999.85,"umidade":73.07,"timestamp":1792881042}
+[24/10/2026 19:30:47] Dados enviados via MQTT | Epoch: 1792881047 | Payload: {"temperatura":22.54,"pressao":999.83,"umidade":73.08,"timestamp":1792881047}
+[24/10/2026 19:30:52] Dados enviados via MQTT | Epoch: 1792881052 | Payload: {"temperatura":22.55,"pressao":999.87,"umidade":73.07,"timestamp":1792881052}
+[24/10/2026 19:30:57] Dados enviados via MQTT | Epoch: 1792881057 | Payload: {"temperatura":22.55,"pressao":999.81,"umidade":73.08,"timestamp":1792881057}
+[24/10/2026 19:31:02] Dados enviados via MQTT | Epoch: 1792881062 | Payload: {"temperatura":22.53,"pressao":999.83,"umidade":73.05,"timestamp":1792881062}
+[24/10/2026 19:31:07] Dados enviados via MQTT | Epoch: 1792881067 | Payload: {"temperatura":22.54,"pressao":999.85,"umidade":73.08,"timestamp":1792881067}
+[24/10/2026 19:31:12] Dados enviados via MQTT | Epoch: 1792881072 | Payload: {"temperatura":22.54,"pressao":999.82,"umidade":73.06,"timestamp":1792881072}
+[24/10/2026 19:31:17] Dados enviados via MQTT | Epoch: 1792881077 | Payload: {"temperatura":22.54,"pressao":999.82,"umidade":73.09,"timestamp":1792881077}
+[24/10/2026 19:31:22] Dados enviados via MQTT | Epoch: 1792881082 | Payload: {"temperatura":22.54,"pressao":999.86,"umidade":73.06,"timestamp":1792881082}
+[24/10/2026 19:31:27] Dados enviados via MQTT | Epoch: 1792881087 | Payload: {"temperatura":22.53,"pressao":999.82,"umidade":73.05,"timestamp":1792881087}
+[24/10/2026 19:31:32] Dados enviados via MQTT | Epoch: 1792881092 | Payload: {"temperatura":22.54,"pressao":999.83,"umidade":72.99,"timestamp":1792881092}
+[24/10/2026 19:31:37] Dados enviados via MQTT | Epoch: 1792881097 | Payload: {"temperatura":22.54,"pressao":999.84,"umidade":73.07,"timestamp":1792881097}
+[24/10/2026 19:31:42] Dados enviados via MQTT | Epoch: 1792881102 | Payload: {"temperatura":22.54,"pressao":999.82,"umidade":73.08,"timestamp":1792881102}
+[24/10/2026 19:31:47] Dados enviados via MQTT | Epoch: 1792881107 | Payload: {"temperatura":22.55,"pressao":999.87,"umidade":73.06,"timestamp":1792881107}
+[24/10/2026 19:31:52] Dados enviados via MQTT | Epoch: 1792881112 | Payload: {"temperatura":22.54,"pressao":999.88,"umidade":73.06,"timestamp":1792881112}
+[24/10/2026 19:31:57] Dados enviados via MQTT | Epoch: 1792881117 | Payload: {"temperatura":22.55,"pressao":999.89,"umidade":73.10,"timestamp":1792881117}
+[24/10/2026 19:32:02] Dados enviados via MQTT | Epoch: 1792881122 | Payload: {"temperatura":22.55,"pressao":999.87,"umidade":73.03,"timestamp":1792881122}
+[24/10/2026 19:32:07] Dados enviados via MQTT | Epoch: 1792881127 | Payload: {"temperatura":22.54,"pressao":999.85,"umidade":73.10,"timestamp":1792881127}
+[24/10/2026 19:32:12] Dados enviados via MQTT | Epoch: 1792881132 | Payload: {"temperatura":22.54,"pressao":999.82,"umidade":73.10,"timestamp":1792881132}
+[24/10/2026 19:32:17] Dados enviados via MQTT | Epoch: 1792881137 | Payload: {"temperatura":22.55,"pressao":999.88,"umidade":73.12,"timestamp":1792881137}
+[24/10/2026 19:32:22] Dados enviados via MQTT | Epoch: 1792881142 | Payload: {"temperatura":22.54,"pressao":999.88,"umidade":73.07,"timestamp":1792881142}
+[24/10/2026 19:32:27] Dados enviados via MQTT | Epoch: 1792881147 | Payload: {"temperatura":22.55,"pressao":999.88,"umidade":73.06,"timestamp":1792881147}
+[24/10/2026 19:32:32] Dados enviados via MQTT | Epoch: 1792881152 | Payload: {"temperatura":22.55,"pressao":999.84,"umidade":73.06,"timestamp":1792881152}
+[24/10/2026 19:32:37] Dados enviados via MQTT | Epoch: 1792881157 | Payload: {"temperatura":22.55,"pressao":999.88,"umidade":73.07,"timestamp":1792881157}
+[24/10/2026 19:32:42] Dados enviados via MQTT | Epoch: 1792881162 | Payload: {"temperatura":22.55,"pressao":999.86,"umidade":73.09,"timestamp":1792881162}
+[24/10/2026 19:32:47] Dados enviados via MQTT | Epoch: 1792881167 | Payload: {"temperatura":22.55,"pressao":999.88,"umidade":73.06,"timestamp":1792881167}
+[24/10/2026 19:32:52] Dados enviados via MQTT | Epoch: 1792881172 | Payload: {"temperatura":22.54,"pressao":999.90,"umidade":73.04,"timestamp":1792881172}
+[24/10/2026 19:32:57] Dados enviados via MQTT | Epoch: 1792881177 | Payload: {"temperatura":22.55,"pressao":999.90,"umidade":73.10,"timestamp":1792881177}
+[24/10/2026 19:33:02] Dados enviados via MQTT | Epoch: 1792881182 | Payload: {"temperatura":22.56,"pressao":999.89,"umidade":73.07,"timestamp":1792881182}
+[24/10/2026 19:33:07] Dados enviados via MQTT | Epoch: 1792881187 | Payload: {"temperatura":22.55,"pressao":999.90,"umidade":73.01,"timestamp":1792881187}
+[24/10/2026 19:33:12] Dados enviados via MQTT | Epoch: 1792881192 | Payload: {"temperatura":22.55,"pressao":999.90,"umidade":73.03,"timestamp":1792881192}
+[24/10/2026 19:33:17] Dados enviados via MQTT | Epoch: 1792881197 | Payload: {"temperatura":22.55,"pressao":999.89,"umidade":72.96,"timestamp":1792881197}
+[24/10/2026 19:33:22] Dados enviados via MQTT | Epoch: 1792881202 | Payload: {"temperatura":22.55,"pressao":999.93,"umidade":73.02,"timestamp":1792881202}
+[24/10/2026 19:33:27] Dados enviados via MQTT | Epoch: 1792881207 | Payload: {"temperatura":22.54,"pressao":999.91,"umidade":73.10,"timestamp":1792881207}
+[24/10/2026 19:33:32] Dados enviados via MQTT | Epoch: 1792881212 | Payload: {"temperatura":22.54,"pressao":999.93,"umidade":73.08,"timestamp":1792881212}
+[24/10/2026 19:33:37] Dados enviados via MQTT | Epoch: 1792881217 | Payload: {"temperatura":22.54,"pressao":999.90,"umidade":73.08,"timestamp":1792881217}
+[24/10/2026 19:33:42] Dados enviados via MQTT | Epoch: 1792881222 | Payload: {"temperatura":22.54,"pressao":999.93,"umidade":73.09,"timestamp":1792881222}
+[24/10/2026 19:33:47] Dados enviados via MQTT | Epoch: 1792881227 | Payload: {"temperatura":22.54,"pressao":999.90,"umidade":73.11,"timestamp":1792881227}
+[24/10/2026 19:33:52] Dados enviados via MQTT | Epoch: 1792881232 | Payload: {"temperatura":22.55,"pressao":999.97,"umidade":73.13,"timestamp":1792881232}
+[24/10/2026 19:33:57] Dados enviados via MQTT | Epoch: 1792881237 | Payload: {"temperatura":22.55,"pressao":999.94,"umidade":73.11,"timestamp":1792881237}
+[24/10/2026 19:34:02] Dados enviados via MQTT | Epoch: 1792881242 | Payload: {"temperatura":22.54,"pressao":999.91,"umidade":73.09,"timestamp":1792881242}
+[24/10/2026 19:34:07] Dados enviados via MQTT | Epoch: 1792881247 | Payload: {"temperatura":22.54,"pressao":999.94,"umidade":73.11,"timestamp":1792881247}
+[24/10/2026 19:34:12] Dados enviados via MQTT | Epoch: 1792881252 | Payload: {"temperatura":22.54,"pressao":999.93,"umidade":73.09,"timestamp":1792881252}
+[24/10/2026 19:34:17] Dados enviados via MQTT | Epoch: 1792881257 | Payload: {"temperatura":22.54,"pressao":999.90,"umidade":73.11,"timestamp":1792881257}
+[24/10/2026 19:34:22] Dados enviados via MQTT | Epoch: 1792881262 | Payload: {"temperatura":22.54,"pressao":999.92,"umidade":73.07,"timestamp":1792881262}
+[24/10/2026 19:34:27] Dados enviados via MQTT | Epoch: 1792881267 | Payload: {"temperatura":22.54,"pressao":999.94,"umidade":73.09,"timestamp":1792881267}
+[24/10/2026 19:34:32] Dados enviados via MQTT | Epoch: 1792881272 | Payload: {"temperatura":22.54,"pressao":999.94,"umidade":73.11,"timestamp":1792881272}
+[24/10/2026 19:34:37] Dados enviados via MQTT | Epoch: 1792881277 | Payload: {"temperatura":22.54,"pressao":999.89,"umidade":73.11,"timestamp":1792881277}
+[24/10/2026 19:34:42] Dados enviados via MQTT | Epoch: 1792881282 | Payload: {"temperatura":22.53,"pressao":999.90,"umidade":73.08,"timestamp":1792881282}
+[24/10/2026 19:34:47] Dados enviados via MQTT | Epoch: 1792881287 | Payload: {"temperatura":22.53,"pressao":999.88,"umidade":73.07,"timestamp":1792881287}
+[24/10/2026 19:34:52] Dados enviados via MQTT | Epoch: 1792881292 | Payload: {"temperatura":22.53,"pressao":999.89,"umidade":73.12,"timestamp":1792881292}
+[24/10/2026 19:34:57] Dados enviados via MQTT | Epoch: 1792881297 | Payload: {"temperatura":22.54,"pressao":999.91,"umidade":73.08,"timestamp":1792881297}
+[24/10/2026 19:35:02] Dados enviados via MQTT | Epoch: 1792881302 | Payload: {"temperatura":22.54,"pressao":999.92,"umidade":73.12,"timestamp":1792881302}
+[24/10/2026 19:35:07] Dados enviados via MQTT | Epoch: 1792881307 | Payload: {"temperatura":22.53,"pressao":999.90,"umidade":73.18,"timestamp":1792881307}
+[24/10/2026 19:35:12] Dados enviados via MQTT | Epoch: 1792881312 | Payload: {"temperatura":22.53,"pressao":999.92,"umidade":73.12,"timestamp":1792881312}

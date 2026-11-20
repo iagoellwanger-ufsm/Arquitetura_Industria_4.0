@@ -1,0 +1,332 @@
+[
+    {
+        "id": "8e0997fd6af1da8a",
+        "type": "tab",
+        "label": "Teste_Carga",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "24de2bf74ead2b81",
+        "type": "mqtt in",
+        "z": "8e0997fd6af1da8a",
+        "d": true,
+        "name": "",
+        "topic": "fabrica/teste/carga",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "53b2e82549eb0df0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "3c31b46dcf82a687",
+                "d2a1e580ea403e4f",
+                "a53242c828f16daa"
+            ]
+        ]
+    },
+    {
+        "id": "d2a1e580ea403e4f",
+        "type": "MSSQL",
+        "z": "8e0997fd6af1da8a",
+        "mssqlCN": "542b45f72154eeea",
+        "name": "",
+        "query": "INSERT INTO analise_carga \n    (client_id, vibracao_rms, status_maquina) \nVALUES \n    ('{{payload.client_id}}', \n     '{{payload.vibracao_rms}}', \n     '{{payload.status_maquina}}');",
+        "outField": "payload",
+        "x": 500,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c31b46dcf82a687",
+        "type": "file",
+        "z": "8e0997fd6af1da8a",
+        "name": "",
+        "filename": "C:\\\\Users\\\\iagoe\\\\Desktop\\\\TCC\\\\dados.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 600,
+        "y": 100,
+        "wires": [
+            [
+                "f01411d5c7b77d6e"
+            ]
+        ]
+    },
+    {
+        "id": "f01411d5c7b77d6e",
+        "type": "debug",
+        "z": "8e0997fd6af1da8a",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a53242c828f16daa",
+        "type": "debug",
+        "z": "8e0997fd6af1da8a",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "590343a658a8c26c",
+        "type": "mqtt in",
+        "z": "8e0997fd6af1da8a",
+        "d": true,
+        "name": "",
+        "topic": "fabrica/teste/carga",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "53b2e82549eb0df0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "8f41a851ec617294",
+                "c66cb4173973be2f",
+                "4d3f2d60fea4c1fc"
+            ]
+        ]
+    },
+    {
+        "id": "a60ef970948459ed",
+        "type": "influxdb3-write",
+        "z": "8e0997fd6af1da8a",
+        "influxdb": "482472121b30e043",
+        "name": "",
+        "measurement": "",
+        "database": "testes_carga_2",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 560,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f41a851ec617294",
+        "type": "function",
+        "z": "8e0997fd6af1da8a",
+        "name": "function 2",
+        "func": "// O JSON do MQTT chega em msg.payload\nlet dados_mqtt = msg.payload;\n\n// 1. Definir a Tabela / Measurement\nmsg.measurement = \"teste_comparativo\";\n\n// 2. Separar as Fields numéricas e as Tags de texto\nmsg.payload = {\n    vibracao_rms: parseFloat(dados_mqtt.vibracao_rms),\n    tags: {\n        client_id: dados_mqtt.client_id,\n        status_maquina: dados_mqtt.status_maquina\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 260,
+        "wires": [
+            [
+                "a60ef970948459ed"
+            ]
+        ]
+    },
+    {
+        "id": "c66cb4173973be2f",
+        "type": "file",
+        "z": "8e0997fd6af1da8a",
+        "name": "",
+        "filename": "C:\\\\Users\\\\iagoe\\\\Desktop\\\\TCC\\\\dados_influx.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 460,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d3f2d60fea4c1fc",
+        "type": "debug",
+        "z": "8e0997fd6af1da8a",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "48e49757cd663236",
+        "type": "influxdb3-write",
+        "z": "8e0997fd6af1da8a",
+        "influxdb": "dab8b97ad33639de",
+        "name": "",
+        "measurement": "teste_performance_100",
+        "database": "base_tcc",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 360,
+        "y": 480,
+        "wires": [
+            [
+                "d4eaebbb5f80d944"
+            ]
+        ]
+    },
+    {
+        "id": "faceb03e7ea4a424",
+        "type": "mqtt in",
+        "z": "8e0997fd6af1da8a",
+        "name": "",
+        "topic": "fabrica/teste/carga",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "53b2e82549eb0df0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "48e49757cd663236",
+                "eb78d34b0849e8a9"
+            ]
+        ]
+    },
+    {
+        "id": "d4eaebbb5f80d944",
+        "type": "debug",
+        "z": "8e0997fd6af1da8a",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "eb78d34b0849e8a9",
+        "type": "file",
+        "z": "8e0997fd6af1da8a",
+        "name": "",
+        "filename": "C:\\\\Users\\\\iagoe\\\\Desktop\\\\TCC\\\\dados_recebidos_nodeRED.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 510,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "53b2e82549eb0df0",
+        "type": "mqtt-broker",
+        "name": "Server_Auxiliar",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "542b45f72154eeea",
+        "type": "MSSQL-CN",
+        "name": "Banco_Server_auxiliar",
+        "server": "127.0.0.1",
+        "encyption": false,
+        "database": "Banco_TCC_V1"
+    },
+    {
+        "id": "482472121b30e043",
+        "type": "influxdb3-config",
+        "name": "Influx_TCC_Buckt_Teste_carga",
+        "host": "http://localhost:8181",
+        "database": "testes_carga",
+        "tlsRejectUnauthorized": true,
+        "caCertPath": ""
+    },
+    {
+        "id": "dab8b97ad33639de",
+        "type": "influxdb3-config",
+        "name": "Banco_ambiente",
+        "host": "http://localhost:8181",
+        "database": "dados_ambiente",
+        "tlsRejectUnauthorized": true,
+        "caCertPath": ""
+    },
+    {
+        "id": "9fcf29827042bd15",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-mssql": "0.0.7",
+            "node-red-contrib-influxdb3": "1.1.1"
+        }
+    }
+]

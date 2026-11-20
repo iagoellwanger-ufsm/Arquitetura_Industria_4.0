@@ -1,0 +1,1050 @@
+[
+    {
+        "id": "6e994aaf31506172",
+        "type": "tab",
+        "label": "MPU6050 MTConnect",
+        "disabled": false,
+        "info": "### MPU6050 via MTConnect\n\nLê `http://localhost:5000/sample` a cada 1 s de forma **incremental** (usa `from=nextSequence`),\nentão nenhuma amostra se perde entre leituras.\n\n**Dashboard:** `http://<node-red>:1880/dashboard/mpu6050`\n\n**Requisitos:** paleta `@flowfuse/node-red-dashboard` (Dashboard 2.0).\n\n**Ajustes** (no topo dos nós de função):\n- *Monta URL /sample*: `AGENTE` (endereço) e `COUNT`.\n- *Interpreta /sample*: `DISPOSITIVO` (se o agente tiver vários) e `MAPA`\n  (mapeamento manual caso a detecção automática dos data items não acerte).\n\nA detecção automática usa o tipo MTConnect (`Acceleration`, `AngularVelocity`,\n`Temperature`) e o nome/ID do data item (`ax`, `accX`, `acc_x`, `gyroY`, `gz`, `temp`…).\nA tabela **Data items** no dashboard mostra o que foi detectado.\n",
+        "env": []
+    },
+    {
+        "id": "19bff3d9cb0ec94d",
+        "type": "comment",
+        "z": "6e994aaf31506172",
+        "name": "Leitura incremental do agente MTConnect (localhost:5000/sample)",
+        "info": "Ajuste o endereço do agente no nó **Monta URL /sample**.",
+        "x": 300,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "094bf6365743890c",
+        "type": "comment",
+        "z": "6e994aaf31506172",
+        "name": "Dashboard → http://localhost:1880/dashboard/mpu6050",
+        "info": "",
+        "x": 1500,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "e267bcacfbfb1609",
+        "type": "inject",
+        "z": "6e994aaf31506172",
+        "name": "a cada 1 s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "e8b33d0407ae5b96"
+            ]
+        ]
+    },
+    {
+        "id": "e8b33d0407ae5b96",
+        "type": "function",
+        "z": "6e994aaf31506172",
+        "name": "Monta URL /sample",
+        "func": "// ===================== Configuração =====================\nconst AGENTE = 'http://localhost:5000';   // endereço do agente MTConnect\nconst COUNT  = 1000;                      // máximo de sequências por requisição\n// ========================================================\n\n// Evita requisições sobrepostas caso o agente demore mais que o intervalo\nconst ocupado = flow.get('mtc_ocupado') || 0;\nif (Date.now() - ocupado < 5000) return null;\nflow.set('mtc_ocupado', Date.now());\n\n// Leitura incremental: pede só o que chegou desde a última resposta (nextSequence)\nconst proximo = flow.get('mtc_proximo');\nmsg.url = AGENTE + '/sample?count=' + COUNT + (proximo != null ? '&from=' + proximo : '');\nmsg.headers = { Accept: 'application/xml' };\nmsg.requestTimeout = 4000;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Zera o estado ao iniciar/deploy\nflow.set('mtc_proximo', null);\nflow.set('mtc_instancia', null);\nflow.set('mtc_ocupado', 0);\n",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "1f9d5f866151f74b"
+            ]
+        ]
+    },
+    {
+        "id": "1f9d5f866151f74b",
+        "type": "http request",
+        "z": "6e994aaf31506172",
+        "name": "GET /sample",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 510,
+        "y": 120,
+        "wires": [
+            [
+                "d5221cd9d29ae2f1"
+            ]
+        ]
+    },
+    {
+        "id": "d5221cd9d29ae2f1",
+        "type": "switch",
+        "z": "6e994aaf31506172",
+        "name": "HTTP 200?",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 680,
+        "y": 120,
+        "wires": [
+            [
+                "ee9e355213fb24ed"
+            ],
+            [
+                "bac29941ceda9481"
+            ]
+        ],
+        "outputLabels": [
+            "OK",
+            "falha"
+        ]
+    },
+    {
+        "id": "ee9e355213fb24ed",
+        "type": "xml",
+        "z": "6e994aaf31506172",
+        "name": "XML → objeto",
+        "property": "payload",
+        "attr": "",
+        "chr": "",
+        "x": 850,
+        "y": 120,
+        "wires": [
+            [
+                "70e5b7ef4511e1ea"
+            ]
+        ]
+    },
+    {
+        "id": "70e5b7ef4511e1ea",
+        "type": "function",
+        "z": "6e994aaf31506172",
+        "name": "Interpreta /sample",
+        "func": "// ===================== Configuração =====================\n// Nome ou UUID do dispositivo no agente ('' = todos os dispositivos)\nconst DISPOSITIVO = '';\n\n// Mapeamento manual (opcional) caso a detecção automática não acerte.\n// Chave = dataItemId ou name do data item.\n//   grupo: 'acel' (acelerômetro), 'giro' (giroscópio) ou 'temp' (temperatura)\n//   eixo : 'X', 'Y' ou 'Z' (não precisa para temperatura)\n// Ex.: const MAPA = { 'mpu_a1': { grupo: 'acel', eixo: 'X' }, 't': { grupo: 'temp' } };\nconst MAPA = {};\n\nconst BACKFILL   = 300;   // na 1ª leitura, quantas sequências recentes carregar\nconst MAX_PONTOS = 600;   // máx. de pontos por série enviados ao gráfico por leitura\n// ========================================================\n\nflow.set('mtc_ocupado', 0);\n\nconst NOMES = { acel: 'Acelerômetro', giro: 'Giroscópio', temp: 'Temperatura' };\nconst hora = (ms) => new Date(ms).toLocaleTimeString('pt-BR');\nconst status = (texto, cor) => {\n    node.status({ fill: cor || 'green', shape: 'dot', text: texto });\n    return { topic: 'status', payload: texto };\n};\n\n// ---------- Validação da resposta ----------\nconst doc = msg.payload || {};\nconst raiz = doc.MTConnectStreams;\nif (!raiz) {\n    flow.set('mtc_proximo', null);          // recomeça a sincronização\n    let det = 'resposta sem MTConnectStreams';\n    try {\n        const e = doc.MTConnectError.Errors[0].Error[0];\n        det = (e.$ && e.$.errorCode ? e.$.errorCode + ': ' : '') + (e._ || '');\n    } catch (err) { /* não é MTConnectError */ }\n    return [null, null, null, null, null, status('⚠️ ' + det + ' — ressincronizando', 'yellow')];\n}\n\nconst h = (raiz.Header && raiz.Header[0] && raiz.Header[0].$) || {};\nconst first = Number(h.firstSequence);\nconst last  = Number(h.lastSequence);\nconst next  = Number(h.nextSequence);\n\n// 1ª leitura ou agente reiniciado (instanceId mudou): pula para as amostras recentes\nif (flow.get('mtc_proximo') == null || h.instanceId !== flow.get('mtc_instancia')) {\n    flow.set('mtc_instancia', h.instanceId);\n    flow.set('mtc_proximo', Math.max(first, last - BACKFILL + 1));\n    context.set('tabela', {});\n    context.set('ultimos', {});\n    return [null, null, null, null, null, status('🔄 Conectado ao agente (instância ' + h.instanceId + ') — sincronizando…', 'blue')];\n}\n\n// Se ficou muito para trás (sensor muito rápido), descarta o atraso\nlet atraso = false;\nif (last - next > 5000) {\n    flow.set('mtc_proximo', last - BACKFILL + 1);\n    atraso = true;\n} else {\n    flow.set('mtc_proximo', next);\n}\n\n// ---------- Extrai todos os <Samples> ----------\nconst itens = [];\nfor (const streams of raiz.Streams || []) {\n    for (const ds of (streams && streams.DeviceStream) || []) {\n        const dev = ds.$ || {};\n        if (DISPOSITIVO && dev.name !== DISPOSITIVO && dev.uuid !== DISPOSITIVO) continue;\n        for (const cs of ds.ComponentStream || []) {\n            const comp = cs.$ || {};\n            for (const amostras of cs.Samples || []) {\n                if (!amostras || typeof amostras !== 'object') continue;\n                for (const tag of Object.keys(amostras)) {\n                    if (tag === '$') continue;\n                    for (const el of amostras[tag]) {\n                        const a = (el && el.$) || {};\n                        itens.push({\n                            tag: tag.replace(/^.*:/, ''),          // remove prefixo de namespace\n                            id: a.dataItemId,\n                            nome: a.name,\n                            comp: comp.name || comp.component || '',\n                            t: Date.parse(a.timestamp),\n                            seq: Number(a.sequence),\n                            taxa: Number(a.sampleRate),\n                            bruto: String(typeof el === 'string' ? el : (el && el._ !== undefined ? el._ : '')).trim()\n                        });\n                    }\n                }\n            }\n        }\n    }\n}\nitens.sort((a, b) => a.seq - b.seq);\n\n// ---------- Classificação: acelerômetro / giroscópio / temperatura + eixo ----------\nfunction grupoDe(it) {\n    const k = String(it.nome || it.id || '').toLowerCase();\n    const t = it.tag.replace(/TimeSeries$/, '').toLowerCase();\n    if (/gyr|giro/.test(k)) return 'giro';\n    if (/temp/.test(k)) return 'temp';\n    if (t === 'angularvelocity' || t === 'angularacceleration') return 'giro';\n    if (t === 'acceleration') return 'acel';\n    if (t === 'temperature') return 'temp';\n    if (/acc|acel/.test(k) || /^a[_-]?[xyz]$/.test(k)) return 'acel';\n    if (/^g[_-]?[xyz]$|angular|rot/.test(k)) return 'giro';\n    return null;\n}\nfunction eixoDe(it) {\n    for (const s of [it.nome, it.id, it.comp]) {\n        if (!s) continue;\n        const m = s.match(/([xyz])[^a-z]*$/i) || s.match(/^([xyz])(?:[^a-z]|$)/i) || s.match(/[^a-z]([xyz])[^a-z]/i);\n        if (m) return m[1].toUpperCase();\n    }\n    return null;\n}\n\nconst pontos = [];                                   // { grupo, serie, t, v }\nconst tabela = context.get('tabela') || {};\nfor (const it of itens) {\n    const chave = it.nome || it.id;\n    const mapa = MAPA[it.id] || MAPA[it.nome] || {};\n    const grupo = mapa.grupo || grupoDe(it);\n    const eixo = mapa.eixo || (grupo === 'temp' ? null : eixoDe(it));\n\n    tabela[it.id || chave] = {\n        'Data item': chave,\n        'ID': it.id,\n        'Tipo': it.tag,\n        'Componente': it.comp,\n        'Detectado como': grupo ? NOMES[grupo] + (eixo ? ' ' + eixo : '') : '—',\n        'Valor': it.bruto.length > 40 ? it.bruto.slice(0, 40) + '…' : it.bruto,\n        'Horário': isNaN(it.t) ? '' : hora(it.t)\n    };\n\n    if (!grupo || it.bruto === '' || it.bruto === 'UNAVAILABLE' || isNaN(it.t)) continue;\n    const nums = it.bruto.split(/\\s+/).map(Number);\n    if (nums.some(isNaN)) continue;\n\n    if (/TimeSeries$/.test(it.tag) && nums.length > 1) {\n        // TIME_SERIES: N valores, o último no timestamp, espaçados por 1/sampleRate\n        const dt = it.taxa > 0 ? 1000 / it.taxa : 0;\n        nums.forEach((v, i) => pontos.push({ grupo, serie: eixo || chave, t: it.t - (nums.length - 1 - i) * dt, v }));\n    } else if (nums.length === 3 && grupo !== 'temp' && !eixo) {\n        // vetor \"x y z\" em um único data item\n        ['X', 'Y', 'Z'].forEach((e, i) => pontos.push({ grupo, serie: e, t: it.t, v: nums[i] }));\n    } else {\n        pontos.push({ grupo, serie: grupo === 'temp' ? chave : (eixo || chave), t: it.t, v: nums[0] });\n    }\n}\ncontext.set('tabela', tabela);\n\n// Corrige diferença de relógio/fuso entre o agente e o Node-RED (gráficos usam a hora local)\nlet desvio = context.get('desvio');\nif (pontos.length) {\n    const recente = pontos.reduce((m, p) => Math.max(m, p.t), -Infinity);\n    const d = Date.now() - recente;\n    if (desvio == null || Math.abs(d - desvio) > 5000) desvio = d;\n    context.set('desvio', desvio);\n}\nconst ajuste = desvio != null && Math.abs(desvio) > 10000 ? desvio : 0;\n\n// ---------- Saídas dos gráficos: uma mensagem por série (msg.topic = série) ----------\nfunction msgsGrafico(grupo, casas) {\n    const series = {};\n    for (const p of pontos) {\n        if (p.grupo !== grupo) continue;\n        (series[p.serie] = series[p.serie] || []).push({ x: Math.round(p.t + ajuste), y: Number(p.v.toFixed(casas)) });\n    }\n    return Object.keys(series).sort().map(s => ({ topic: s, payload: series[s].slice(-MAX_PONTOS) }));\n}\n\n// ---------- Valores atuais (+ inclinação calculada pelo acelerômetro) ----------\nconst ultimos = context.get('ultimos') || {};\nfor (const p of pontos) {\n    const k = p.grupo === 'temp' ? 'temp' : p.grupo + '_' + p.serie;\n    if (!ultimos[k] || p.t >= ultimos[k].t) ultimos[k] = { t: p.t, v: p.v };\n}\ncontext.set('ultimos', ultimos);\n\nconst valores = [];\nconst casasDe = (k) => (k === 'temp' ? 1 : 3);\nfor (const k of ['acel_X', 'acel_Y', 'acel_Z', 'giro_X', 'giro_Y', 'giro_Z', 'temp']) {\n    if (ultimos[k]) valores.push({ topic: k, payload: Number(ultimos[k].v.toFixed(casasDe(k))) });\n}\nif (ultimos.acel_X && ultimos.acel_Y && ultimos.acel_Z) {\n    // independe da unidade (g, m/s², mm/s²)\n    const ax = ultimos.acel_X.v, ay = ultimos.acel_Y.v, az = ultimos.acel_Z.v;\n    const graus = 180 / Math.PI;\n    valores.push({ topic: 'roll',  payload: Number((Math.atan2(ay, az) * graus).toFixed(1)) });\n    valores.push({ topic: 'pitch', payload: Number((Math.atan2(-ax, Math.hypot(ay, az)) * graus).toFixed(1)) });\n}\n\n// ---------- Tabela e status ----------\nconst linhas = Object.values(tabela).sort((a, b) => String(a['Data item']).localeCompare(String(b['Data item'])));\nconst msgTabela = itens.length ? { payload: linhas } : null;\n\nlet texto, cor = 'green';\nconst reconhecidos = Object.values(tabela).filter(l => l['Detectado como'] !== '—').length;\nif (Object.keys(tabela).length && !reconhecidos) {\n    texto = '⚠️ Nenhum data item reconhecido como MPU6050 — confira a tabela e ajuste MAPA no nó \"Interpreta /sample\"';\n    cor = 'yellow';\n} else {\n    texto = '✅ Conectado · ' + itens.length + ' amostras novas · sequência ' + (next - 1) + ' · ' + hora(Date.now())\n        + (atraso ? ' · ⚠️ leitura atrasada, parte do buffer foi pulada' : '');\n}\n\nreturn [\n    msgsGrafico('acel', 3),\n    msgsGrafico('giro', 3),\n    msgsGrafico('temp', 2),\n    valores,\n    msgTabela,\n    status(texto, cor)\n];\n",
+        "outputs": 6,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 120,
+        "wires": [
+            [
+                "932c1dc406ff2faa"
+            ],
+            [
+                "abc005797090c752"
+            ],
+            [
+                "bb994025e8fca690"
+            ],
+            [
+                "ef291f27c3257274"
+            ],
+            [
+                "f5fa25980671697c"
+            ],
+            [
+                "8e489dd3800e3d0e"
+            ]
+        ],
+        "outputLabels": [
+            "gráfico aceleração",
+            "gráfico giroscópio",
+            "gráfico temperatura",
+            "valores atuais",
+            "tabela de data items",
+            "status"
+        ]
+    },
+    {
+        "id": "bac29941ceda9481",
+        "type": "function",
+        "z": "6e994aaf31506172",
+        "name": "Falha na leitura",
+        "func": "// Trata falhas de comunicação (sem conexão, timeout, HTTP != 200) e erros de parsing\nflow.set('mtc_ocupado', 0);\nlet texto;\n\nif (msg.error) {\n    // vindo do nó catch (XML inválido, erro no código etc.)\n    texto = '❌ Erro ao interpretar a resposta: ' + msg.error.message;\n} else if (typeof msg.statusCode === 'number') {\n    // o agente respondeu, mas com erro (ex.: OUT_OF_RANGE quando o buffer foi sobrescrito)\n    flow.set('mtc_proximo', null);       // recomeça a sincronização\n    const m = String(msg.payload || '').match(/errorCode=\"([^\"]+)\"/);\n    texto = '⚠️ Agente respondeu HTTP ' + msg.statusCode + (m ? ' (' + m[1] + ')' : '') + ' — ressincronizando';\n} else {\n    // sem resposta: agente desligado, porta errada, timeout…\n    texto = '❌ Sem conexão com o agente MTConnect (' + (msg.statusCode || msg.payload || 'erro') + ')';\n}\n\ntexto += ' · ' + new Date().toLocaleTimeString('pt-BR');\nnode.status({ fill: 'red', shape: 'ring', text: texto });\nreturn { topic: 'status', payload: texto };\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 220,
+        "wires": [
+            [
+                "8e489dd3800e3d0e"
+            ]
+        ]
+    },
+    {
+        "id": "3c51f89c61b48b06",
+        "type": "catch",
+        "z": "6e994aaf31506172",
+        "name": "erros de parsing",
+        "scope": [
+            "ee9e355213fb24ed",
+            "70e5b7ef4511e1ea"
+        ],
+        "uncaught": false,
+        "x": 680,
+        "y": 260,
+        "wires": [
+            [
+                "bac29941ceda9481"
+            ]
+        ]
+    },
+    {
+        "id": "ef291f27c3257274",
+        "type": "switch",
+        "z": "6e994aaf31506172",
+        "name": "Separa valores",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "acel_X",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "acel_Y",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "acel_Z",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "giro_X",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "giro_Y",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "giro_Z",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "temp",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "roll",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "pitch",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 9,
+        "x": 1400,
+        "y": 460,
+        "wires": [
+            [
+                "78cfa931f8de3e29"
+            ],
+            [
+                "43c67b3ad6d39a2c"
+            ],
+            [
+                "78139ef7ecb929ca"
+            ],
+            [
+                "2fc5401fe6f1a465"
+            ],
+            [
+                "531fdf93ac2afb5f"
+            ],
+            [
+                "c5516960f02ef025"
+            ],
+            [
+                "0e42bc4acbbbbb6e"
+            ],
+            [
+                "f2edd9992894f890"
+            ],
+            [
+                "9552c8fa943ae745"
+            ]
+        ],
+        "outputLabels": [
+            "acel_X",
+            "acel_Y",
+            "acel_Z",
+            "giro_X",
+            "giro_Y",
+            "giro_Z",
+            "temp",
+            "roll",
+            "pitch"
+        ]
+    },
+    {
+        "id": "932c1dc406ff2faa",
+        "type": "ui-chart",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000105",
+        "name": "Aceleração",
+        "label": "Aceleração",
+        "order": 4,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "x",
+        "xAxisPropertyType": "property",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "y",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "600",
+        "colors": [
+            "#0095FF",
+            "#FF0000",
+            "#2CA02C",
+            "#FF7F0E",
+            "#A347E1",
+            "#D62728",
+            "#FF9896",
+            "#9467BD",
+            "#C5B0D5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 5,
+        "className": "",
+        "interpolation": "linear",
+        "x": 1400,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "abc005797090c752",
+        "type": "ui-chart",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000106",
+        "name": "Velocidade angular",
+        "label": "Velocidade angular",
+        "order": 4,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "x",
+        "xAxisPropertyType": "property",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "y",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "600",
+        "colors": [
+            "#0095FF",
+            "#FF0000",
+            "#2CA02C",
+            "#FF7F0E",
+            "#A347E1",
+            "#D62728",
+            "#FF9896",
+            "#9467BD",
+            "#C5B0D5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 5,
+        "className": "",
+        "interpolation": "linear",
+        "x": 1410,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb994025e8fca690",
+        "type": "ui-chart",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000108",
+        "name": "Temperatura (°C)",
+        "label": "Temperatura (°C)",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "x",
+        "xAxisPropertyType": "property",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "y",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "600",
+        "colors": [
+            "#0095FF",
+            "#FF0000",
+            "#2CA02C",
+            "#FF7F0E",
+            "#A347E1",
+            "#D62728",
+            "#FF9896",
+            "#9467BD",
+            "#C5B0D5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 4,
+        "height": 3,
+        "className": "",
+        "interpolation": "linear",
+        "x": 1410,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5fa25980671697c",
+        "type": "ui-table",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000109",
+        "name": "Data items",
+        "label": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": true,
+        "showSearch": false,
+        "deselect": true,
+        "selectionType": "none",
+        "columns": [],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "className": "",
+        "x": 1390,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e489dd3800e3d0e",
+        "type": "ui-text",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000104",
+        "order": 1,
+        "width": 12,
+        "height": 1,
+        "name": "Agente MTConnect",
+        "label": "Agente MTConnect",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1420,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "78cfa931f8de3e29",
+        "type": "ui-text",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000105",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "name": "X",
+        "label": "X",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1640,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "43c67b3ad6d39a2c",
+        "type": "ui-text",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000105",
+        "order": 2,
+        "width": 2,
+        "height": 1,
+        "name": "Y",
+        "label": "Y",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1640,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "78139ef7ecb929ca",
+        "type": "ui-text",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000105",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "name": "Z",
+        "label": "Z",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1640,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2fc5401fe6f1a465",
+        "type": "ui-text",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000106",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "name": "X",
+        "label": "X",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1640,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "531fdf93ac2afb5f",
+        "type": "ui-text",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000106",
+        "order": 2,
+        "width": 2,
+        "height": 1,
+        "name": "Y",
+        "label": "Y",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1640,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c5516960f02ef025",
+        "type": "ui-text",
+        "z": "6e994aaf31506172",
+        "group": "a1f0c0de00000106",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "name": "Z",
+        "label": "Z",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1640,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "0e42bc4acbbbbb6e",
+        "type": "ui-gauge",
+        "z": "6e994aaf31506172",
+        "name": "Temperatura",
+        "group": "a1f0c0de00000108",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperatura",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": 0,
+                "color": "#53B4FD"
+            },
+            {
+                "from": 15,
+                "color": "#5CD65C"
+            },
+            {
+                "from": 40,
+                "color": "#FFC800"
+            },
+            {
+                "from": 50,
+                "color": "#EA5353"
+            }
+        ],
+        "min": 0,
+        "max": 60,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1670,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f2edd9992894f890",
+        "type": "ui-gauge",
+        "z": "6e994aaf31506172",
+        "name": "Roll (em torno de X)",
+        "group": "a1f0c0de00000107",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Roll (em torno de X)",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": -180,
+                "color": "#EA5353"
+            },
+            {
+                "from": -90,
+                "color": "#FFC800"
+            },
+            {
+                "from": -30,
+                "color": "#5CD65C"
+            },
+            {
+                "from": 30,
+                "color": "#FFC800"
+            },
+            {
+                "from": 90,
+                "color": "#EA5353"
+            }
+        ],
+        "min": -180,
+        "max": 180,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1670,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9552c8fa943ae745",
+        "type": "ui-gauge",
+        "z": "6e994aaf31506172",
+        "name": "Pitch (em torno de Y)",
+        "group": "a1f0c0de00000107",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Pitch (em torno de Y)",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": -90,
+                "color": "#EA5353"
+            },
+            {
+                "from": -45,
+                "color": "#FFC800"
+            },
+            {
+                "from": -15,
+                "color": "#5CD65C"
+            },
+            {
+                "from": 15,
+                "color": "#FFC800"
+            },
+            {
+                "from": 45,
+                "color": "#EA5353"
+            }
+        ],
+        "min": -90,
+        "max": 90,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1670,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1f0c0de00000105",
+        "type": "ui-group",
+        "name": "Acelerômetro",
+        "page": "a1f0c0de00000103",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "a1f0c0de00000106",
+        "type": "ui-group",
+        "name": "Giroscópio",
+        "page": "a1f0c0de00000103",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "a1f0c0de00000108",
+        "type": "ui-group",
+        "name": "Temperatura",
+        "page": "a1f0c0de00000103",
+        "width": 6,
+        "height": 1,
+        "order": 5,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "a1f0c0de00000109",
+        "type": "ui-group",
+        "name": "Data items recebidos",
+        "page": "a1f0c0de00000103",
+        "width": 12,
+        "height": 1,
+        "order": 6,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "a1f0c0de00000104",
+        "type": "ui-group",
+        "name": "Status",
+        "page": "a1f0c0de00000103",
+        "width": 12,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "a1f0c0de00000107",
+        "type": "ui-group",
+        "name": "Inclinação (calculada pelo acelerômetro)",
+        "page": "a1f0c0de00000103",
+        "width": 6,
+        "height": 1,
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "a1f0c0de00000103",
+        "type": "ui-page",
+        "name": "MPU6050",
+        "ui": "a1f0c0de00000101",
+        "path": "/mpu6050",
+        "icon": "chart-line",
+        "layout": "grid",
+        "theme": "a1f0c0de00000102",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "tabs": [],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "a1f0c0de00000101",
+        "type": "ui-base",
+        "name": "Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "a1f0c0de00000102",
+        "type": "ui-theme",
+        "name": "Tema MPU6050",
+        "colors": {
+            "surface": "#1f2a37",
+            "primary": "#0d74ce",
+            "bgPage": "#f4f6f9",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "6px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "c257139d0a87cc86",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.34.1"
+        }
+    }
+]

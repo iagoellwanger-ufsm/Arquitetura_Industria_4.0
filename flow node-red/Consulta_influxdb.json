@@ -1,0 +1,930 @@
+[
+    {
+        "id": "4b47fc4a8cf22cee",
+        "type": "tab",
+        "label": "Consulta_InfluxDB",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4ca75be95ca09ce4",
+        "type": "group",
+        "z": "4b47fc4a8cf22cee",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#767676"
+        },
+        "nodes": [
+            "inj1",
+            "fn1",
+            "http1",
+            "dbg1",
+            "6a469e3619f24d37",
+            "b5b9dcad518d3269",
+            "6a1f1e7f45e318da",
+            "97d5e5054767b9ea",
+            "6b6c10bd6f9c0c65",
+            "5d74144e2f496027",
+            "ebd89ecee3eacce3",
+            "fdb07d90e97c81ab"
+        ],
+        "x": 54,
+        "y": 19,
+        "w": 1032,
+        "h": 262
+    },
+    {
+        "id": "99ac0beeb1d7f676",
+        "type": "group",
+        "z": "4b47fc4a8cf22cee",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#767676"
+        },
+        "nodes": [
+            "8a58ac4a1d5cdd03",
+            "d190b780418274d6",
+            "db479e36f7c6b1cd",
+            "2f8b38c039d0ab60",
+            "1ad2f89928b92234",
+            "3cbf433f2bfc65c3",
+            "ce65cc45cc1b942c",
+            "4f1761bbc20bc5a0",
+            "6f9681b3df823a95",
+            "e08413381f4dcc38",
+            "f7cf379cdc969db1",
+            "68336f64fa156f70"
+        ],
+        "x": 54,
+        "y": 319,
+        "w": 1032,
+        "h": 262
+    },
+    {
+        "id": "cd555b59d0376272",
+        "type": "group",
+        "z": "4b47fc4a8cf22cee",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#767676"
+        },
+        "nodes": [
+            "6078237f3204709f",
+            "c48a89b224da09e2",
+            "1383258ccd6688cf",
+            "3c9efc2a69489c61",
+            "944824c76fb8866e",
+            "d7f5c8e83c758851",
+            "0934e2790dd96a24",
+            "bf04273d8d3d5a08",
+            "4db4e0707b96276d",
+            "3bc7464ca1e2726e",
+            "07e89b2c0141b814",
+            "9c261687a949f56d",
+            "95f67fa04bd77864",
+            "c1b5a09cc086f0e4",
+            "071606bdacfe1278",
+            "62529adadc30db96",
+            "c192138767018135",
+            "a43bf0e41d9fc937"
+        ],
+        "x": 54,
+        "y": 639,
+        "w": 1032,
+        "h": 522
+    },
+    {
+        "id": "inj1",
+        "type": "inject",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "a cada 5 s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 280,
+        "y": 100,
+        "wires": [
+            [
+                "fn1"
+            ]
+        ]
+    },
+    {
+        "id": "fn1",
+        "type": "function",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "monta consulta",
+        "func": "const db = 'dadosPrimarios';\nconst sql = 'SELECT * FROM \"dadosAmbiente\" ORDER BY time DESC LIMIT 1';\n\nmsg.url = 'http://localhost:8181/api/v3/query_sql'\n        + '?db=' + encodeURIComponent(db)\n        + '&q='  + encodeURIComponent(sql)\n        + '&format=json';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 80,
+        "wires": [
+            [
+                "http1"
+            ]
+        ]
+    },
+    {
+        "id": "http1",
+        "type": "http request",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "InfluxDB 3",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "x": 730,
+        "y": 80,
+        "wires": [
+            [
+                "dbg1",
+                "b5b9dcad518d3269"
+            ]
+        ]
+    },
+    {
+        "id": "dbg1",
+        "type": "debug",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "resultado",
+        "active": false,
+        "complete": "payload",
+        "x": 980,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6a469e3619f24d37",
+        "type": "http in",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "",
+        "url": "/dadosAmbiente/ultimo",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 60,
+        "wires": [
+            [
+                "fn1"
+            ]
+        ]
+    },
+    {
+        "id": "b5b9dcad518d3269",
+        "type": "http response",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "8a58ac4a1d5cdd03",
+        "type": "function",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "monta consulta",
+        "func": "const db = 'dadosPrimarios';\nconst sql = 'SELECT aceleracao_rms_global / 1000 as aceleracao_rms_global FROM \"dadosVibracaoEdge\" ORDER BY time DESC LIMIT 1';\n\nmsg.url = 'http://localhost:8181/api/v3/query_sql'\n        + '?db=' + encodeURIComponent(db)\n        + '&q='  + encodeURIComponent(sql)\n        + '&format=json';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 380,
+        "wires": [
+            [
+                "d190b780418274d6"
+            ]
+        ]
+    },
+    {
+        "id": "d190b780418274d6",
+        "type": "http request",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "InfluxDB 3",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "x": 730,
+        "y": 380,
+        "wires": [
+            [
+                "db479e36f7c6b1cd",
+                "2f8b38c039d0ab60"
+            ]
+        ]
+    },
+    {
+        "id": "db479e36f7c6b1cd",
+        "type": "debug",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "resultado",
+        "active": false,
+        "complete": "payload",
+        "x": 980,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2f8b38c039d0ab60",
+        "type": "http response",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1ad2f89928b92234",
+        "type": "inject",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "a cada 5 s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "8a58ac4a1d5cdd03"
+            ]
+        ]
+    },
+    {
+        "id": "3cbf433f2bfc65c3",
+        "type": "http in",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "",
+        "url": "/dadosVibracaoEdge/ultimo",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "8a58ac4a1d5cdd03"
+            ]
+        ]
+    },
+    {
+        "id": "6a1f1e7f45e318da",
+        "type": "inject",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "a cada 5 s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 280,
+        "y": 240,
+        "wires": [
+            [
+                "97d5e5054767b9ea"
+            ]
+        ]
+    },
+    {
+        "id": "97d5e5054767b9ea",
+        "type": "function",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "monta consulta",
+        "func": "const db = 'dadosPrimarios';\nconst sql = 'SELECT * FROM \"dadosAmbiente\" ORDER BY time DESC LIMIT 50000';\n\nmsg.url = 'http://localhost:8181/api/v3/query_sql'\n        + '?db=' + encodeURIComponent(db)\n        + '&q='  + encodeURIComponent(sql)\n        + '&format=json';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 220,
+        "wires": [
+            [
+                "6b6c10bd6f9c0c65"
+            ]
+        ]
+    },
+    {
+        "id": "6b6c10bd6f9c0c65",
+        "type": "http request",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "InfluxDB 3",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "x": 730,
+        "y": 220,
+        "wires": [
+            [
+                "5d74144e2f496027",
+                "fdb07d90e97c81ab"
+            ]
+        ]
+    },
+    {
+        "id": "5d74144e2f496027",
+        "type": "debug",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "resultado",
+        "active": false,
+        "complete": "payload",
+        "x": 980,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ebd89ecee3eacce3",
+        "type": "http in",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "",
+        "url": "/dadosAmbiente/timeseries",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "97d5e5054767b9ea"
+            ]
+        ]
+    },
+    {
+        "id": "fdb07d90e97c81ab",
+        "type": "http response",
+        "z": "4b47fc4a8cf22cee",
+        "g": "4ca75be95ca09ce4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ce65cc45cc1b942c",
+        "type": "function",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "monta consulta",
+        "func": "\nconst db = 'dadosPrimarios';\nconst sql = \"select aceleracao_rms_global / 1000 as aceleracao_rms_global, time FROM \\\"dadosVibracaoEdge\\\" where time > now() - interval '1 hour' ORDER BY time\";\n\nmsg.url = 'http://localhost:8181/api/v3/query_sql'\n        + '?db=' + encodeURIComponent(db)\n        + '&q='  + encodeURIComponent(sql)\n        + '&format=json';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "4f1761bbc20bc5a0"
+            ]
+        ]
+    },
+    {
+        "id": "4f1761bbc20bc5a0",
+        "type": "http request",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "InfluxDB 3",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "x": 730,
+        "y": 520,
+        "wires": [
+            [
+                "6f9681b3df823a95",
+                "e08413381f4dcc38"
+            ]
+        ]
+    },
+    {
+        "id": "6f9681b3df823a95",
+        "type": "debug",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "resultado",
+        "active": false,
+        "complete": "payload",
+        "x": 980,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e08413381f4dcc38",
+        "type": "http response",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f7cf379cdc969db1",
+        "type": "inject",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "a cada 5 s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 280,
+        "y": 540,
+        "wires": [
+            [
+                "ce65cc45cc1b942c"
+            ]
+        ]
+    },
+    {
+        "id": "68336f64fa156f70",
+        "type": "http in",
+        "z": "4b47fc4a8cf22cee",
+        "g": "99ac0beeb1d7f676",
+        "name": "",
+        "url": "/dadosVibracaoEdge/timeseries",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 500,
+        "wires": [
+            [
+                "ce65cc45cc1b942c"
+            ]
+        ]
+    },
+    {
+        "id": "6078237f3204709f",
+        "type": "function",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "monta consulta",
+        "func": "const db = 'dadosPrimarios';\nconst sql = \"select acc_x/1000 as acc_x, time from vibracao WHERE acc_x is not null and time > now() - interval '5 minutes' ORDER BY time\";\n\nmsg.url = 'http://localhost:8181/api/v3/query_sql'\n        + '?db=' + encodeURIComponent(db)\n        + '&q='  + encodeURIComponent(sql)\n        + '&format=json';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 700,
+        "wires": [
+            [
+                "c48a89b224da09e2"
+            ]
+        ]
+    },
+    {
+        "id": "c48a89b224da09e2",
+        "type": "http request",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "InfluxDB 3",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 730,
+        "y": 700,
+        "wires": [
+            [
+                "1383258ccd6688cf",
+                "3c9efc2a69489c61"
+            ]
+        ]
+    },
+    {
+        "id": "1383258ccd6688cf",
+        "type": "debug",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "resultado",
+        "active": true,
+        "complete": "payload",
+        "x": 980,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "3c9efc2a69489c61",
+        "type": "http response",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "944824c76fb8866e",
+        "type": "inject",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "a cada 5 s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 280,
+        "y": 720,
+        "wires": [
+            [
+                "6078237f3204709f"
+            ]
+        ]
+    },
+    {
+        "id": "d7f5c8e83c758851",
+        "type": "http in",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "",
+        "url": "/dadosVibracao/ultimo/x",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 680,
+        "wires": [
+            [
+                "6078237f3204709f"
+            ]
+        ]
+    },
+    {
+        "id": "0934e2790dd96a24",
+        "type": "function",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "monta consulta",
+        "func": "const db = 'dadosPrimarios';\nconst sql = \"select acc_x/1000 as acc_X, acc_y/1000 as acc_y, acc_z/1000 as acc_z, time from vibracao where time > now() - interval '5 minutes' ORDER BY time DESC\";\n\nmsg.url = 'http://localhost:8181/api/v3/query_sql'\n        + '?db=' + encodeURIComponent(db)\n        + '&q='  + encodeURIComponent(sql)\n        + '&format=json';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1100,
+        "wires": [
+            [
+                "bf04273d8d3d5a08"
+            ]
+        ]
+    },
+    {
+        "id": "bf04273d8d3d5a08",
+        "type": "http request",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "InfluxDB 3",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "x": 730,
+        "y": 1100,
+        "wires": [
+            [
+                "4db4e0707b96276d",
+                "3bc7464ca1e2726e"
+            ]
+        ]
+    },
+    {
+        "id": "4db4e0707b96276d",
+        "type": "debug",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "resultado",
+        "active": false,
+        "complete": "payload",
+        "x": 980,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "3bc7464ca1e2726e",
+        "type": "http response",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "07e89b2c0141b814",
+        "type": "inject",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "a cada 5 s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 280,
+        "y": 1120,
+        "wires": [
+            [
+                "0934e2790dd96a24"
+            ]
+        ]
+    },
+    {
+        "id": "9c261687a949f56d",
+        "type": "http in",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "",
+        "url": "/dadosVibracao/timeseries",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 1080,
+        "wires": [
+            [
+                "0934e2790dd96a24"
+            ]
+        ]
+    },
+    {
+        "id": "95f67fa04bd77864",
+        "type": "function",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "monta consulta",
+        "func": "const db = 'dadosPrimarios';\nconst sql = \"select acc_y/1000 as acc_y, time from vibracao WHERE acc_y is not null and time > now() - interval '5 minutes' ORDER BY time\";\n\nmsg.url = 'http://localhost:8181/api/v3/query_sql'\n        + '?db=' + encodeURIComponent(db)\n        + '&q='  + encodeURIComponent(sql)\n        + '&format=json';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 800,
+        "wires": [
+            [
+                "c1b5a09cc086f0e4"
+            ]
+        ]
+    },
+    {
+        "id": "c1b5a09cc086f0e4",
+        "type": "http request",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "InfluxDB 3",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "x": 730,
+        "y": 800,
+        "wires": [
+            [
+                "071606bdacfe1278",
+                "62529adadc30db96"
+            ]
+        ]
+    },
+    {
+        "id": "071606bdacfe1278",
+        "type": "debug",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "resultado",
+        "active": false,
+        "complete": "payload",
+        "x": 980,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "62529adadc30db96",
+        "type": "http response",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "c192138767018135",
+        "type": "inject",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "a cada 5 s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 280,
+        "y": 820,
+        "wires": [
+            [
+                "95f67fa04bd77864"
+            ]
+        ]
+    },
+    {
+        "id": "a43bf0e41d9fc937",
+        "type": "http in",
+        "z": "4b47fc4a8cf22cee",
+        "g": "cd555b59d0376272",
+        "name": "",
+        "url": "/dadosVibracao/ultimo/y",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 780,
+        "wires": [
+            [
+                "95f67fa04bd77864"
+            ]
+        ]
+    },
+    {
+        "id": "a4cdd3e631de0a9b",
+        "type": "function",
+        "z": "4b47fc4a8cf22cee",
+        "name": "monta consulta",
+        "func": "const db = 'dadosPrimarios';\nconst sql = \"select acc_z/1000 as acc_z, time from vibracao WHERE acc_z is not null and time > now() - interval '5 minutes' ORDER BY time\";\n\nmsg.url = 'http://localhost:8181/api/v3/query_sql'\n        + '?db=' + encodeURIComponent(db)\n        + '&q='  + encodeURIComponent(sql)\n        + '&format=json';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 900,
+        "wires": [
+            [
+                "9c46afeeb8c963bd"
+            ]
+        ]
+    },
+    {
+        "id": "9c46afeeb8c963bd",
+        "type": "http request",
+        "z": "4b47fc4a8cf22cee",
+        "name": "InfluxDB 3",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "x": 730,
+        "y": 900,
+        "wires": [
+            [
+                "c88dc28c9961a188",
+                "a0a34b193aca5bba"
+            ]
+        ]
+    },
+    {
+        "id": "c88dc28c9961a188",
+        "type": "debug",
+        "z": "4b47fc4a8cf22cee",
+        "name": "resultado",
+        "active": false,
+        "complete": "payload",
+        "x": 980,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "a0a34b193aca5bba",
+        "type": "http response",
+        "z": "4b47fc4a8cf22cee",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "6ed0cf68df42a7c1",
+        "type": "inject",
+        "z": "4b47fc4a8cf22cee",
+        "name": "a cada 5 s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 280,
+        "y": 920,
+        "wires": [
+            [
+                "a4cdd3e631de0a9b"
+            ]
+        ]
+    },
+    {
+        "id": "6256add0310ffa3a",
+        "type": "http in",
+        "z": "4b47fc4a8cf22cee",
+        "name": "",
+        "url": "/dadosVibracao/ultimo/z",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 880,
+        "wires": [
+            [
+                "a4cdd3e631de0a9b"
+            ]
+        ]
+    }
+]
