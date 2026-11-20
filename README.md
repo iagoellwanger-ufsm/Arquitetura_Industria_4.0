@@ -1,0 +1,1 @@
+# Arquitetura_Industria_4.0
